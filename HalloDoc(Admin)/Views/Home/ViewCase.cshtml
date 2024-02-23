@@ -1,0 +1,122 @@
+﻿@model HalloDoc_Admin_.Entities.ViewModel.ViewCaseData
+@{
+    ViewData["title"] = "View Case";
+}
+
+<div class="text-end my-3 d-flex flex-row justify-content-between container">
+    <div class="d-flex ">
+        <h2>New Request</h2>
+        <div class="btn">()</div>
+    </div>
+    <a class="btn_dash p-1" asp-controller="Home" asp-action="Index">
+        <img src="../images/downward-arrow.svg" style="transform: rotate(90deg);" />Back
+    </a>
+</div>
+<div class="d-flex flex-column container requestform bg-white p-4">
+            <h2 class=" col-12" id="role-head">Patient Information</h2>
+            <p>Confirmation Number</p>
+    <h3 style="color:#45D6F1">()</h3>
+    <form class="w-100 mb-5" method="post" asp-controller="Home" asp-action="ViewCase" enctype="multipart/form-data">
+        <div class="row mb-3">
+            <div class="group mb-3 col-12">
+                <textarea class="form-control input-field" id="" rows="3" placeholder="" asp-for="Symptoms" readonly></textarea>
+                <label for="" class="placeholder">Symptoms</label>
+            </div>
+        </div>
+        <hr />
+        <div class="row mb-3 align-items-center">
+            <div class="group mb-3 col-xl-6 col-sm-12">
+                <input type="text" class="form-control input-field" id="" placeholder="" asp-for="FirstName" readonly>
+                <label for="" class="placeholder">First Name </label>
+                <span @*asp-validation-for=""*@ class="text-danger"></span>
+            </div>
+            <div class="group mb-3 col-xl-6 col-sm-12">
+                <input type="text" class="form-control input-field" placeholder="" asp-for="LastName" readonly>
+                <label for="" class="placeholder">Last Name</label>
+                <span @*asp-validation-for=""*@ class="text-danger"></span>
+            </div>
+            <div class="group mb-3 col-xl-6 col-sm-12">
+                <input placeholder="Date Of Birth" onfocus="(this.type='date')" onblur="(this.type='text')"
+                       class="form-control" id="" asp-for="DOB" readonly>
+                <label for="" class="placeholder"></label>
+                <span @*asp-validation-for=""*@ class="text-danger"></span>
+            </div>
+            <div class="group mb-3 col-xl-5 col-sm-10">
+                <input type="tel" class="form-control input-field " id="phone" name="phone" placeholder="Phone" asp-for="Phone" readonly>
+                <span @*asp-validation-for=""*@ class="text-danger"></span>
+            </div>
+            <a class="col-xl-1 col-sm-2"> <i class="bi bi-telephone  py-1 px-2" style="color:#45D6F1;border:1px solid #45D6F1;border-radius:5px"></i></a>
+            <div class="group mb-3 col-xl-6 col-sm-12">
+                <input type="email" class="form-control input-field" id="patientemail" placeholder="" asp-for="Email" readonly>
+                <label for="" class="placeholder">Email </label>
+                <span @*asp-validation-for=""*@ class="text-danger"></span>
+            </div>
+            <button type="button" class="col-xl-1 col-sm-12 btn btn-primary">Edit</button>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <h2 class=" col-12" id="role-head">Patient Location</h2>
+            <div class="group mb-3 col-xl-6 col-sm-12">
+                <input type="text" class="form-control input-field" id="" placeholder="" asp-for="Region" readonly>
+                <label for="" class="placeholder">Region</label>
+                <span @*asp-validation-for=""*@ class="text-danger"></span>
+            </div>
+            <div class="group mb-3 col-xl-5 col-sm-10">
+                <input type="text" class="form-control input-field" id="" placeholder="" asp-for="BusinessName" readonly>
+                <label for="" class="placeholder">Business Name/Address</label>
+                <span @*asp-validation-for=""*@ class="text-danger"></span>
+            </div>
+            <a class="col-xl-1 col-sm-2 "> <i class="bi bi-geo-alt  py-1 px-2" style="color:#45D6F1;border:1px solid #45D6F1;border-radius:5px"></i></a>
+            <div class="group mb-3 col-xl-6 col-sm-12">
+                <input type="text" class="form-control input-field" id="" placeholder="" readonly>
+                <label for="" class="placeholder">Room #</label>
+                <span @*asp-validation-for=""*@ class="text-danger"></span>
+            </div>
+        </div>
+        <div class="text-end">
+            <button type="button" class="btn btn-primary">Assign</button>
+            <button type="button" class="btn btn-primary">View Notes</button>
+            <button type="button" class="btn btn-light">Cancel</button>
+        </div>
+    </form>
+</div>
+<script>
+    $(document).ready
+        (
+            function () {
+                $(patientemail).on('blur', function () {
+                    $.ajax({
+                        url: "https://localhost:44347/patientdatamodel/checkemail",
+                        data: {
+                            email: $("#patientemail").val()
+                        },
+                        success: function (result) {
+                            if (result.isexist) {
+                                $("#password").hide();
+                            }
+                            else {
+                                $("#password").show();
+                            }
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    })
+                }
+                )
+            }
+        )
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intltelinput.min.js"></script>
+<script>
+    const phoneinputfield = document.queryselector("#phone");
+    const phoneinput = window.intltelinput(phoneinputfield, {
+        utilsscript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+    const phoneinputfield1 = document.queryselector("#phone1");
+    const phoneinput1 = window.intltelinput(phoneinputfield1, {
+        utilsscript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>

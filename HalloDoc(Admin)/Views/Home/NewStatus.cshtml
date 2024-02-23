@@ -1,0 +1,88 @@
+﻿@model List<HalloDoc_Admin_.Entities.ViewModel.DashboardAdminData>
+@{
+    
+}
+    <table class="table  bg-light">
+        <thead>
+        <th>Name</th>
+        <th class="text-center">Date of Birth</th>
+        <th>Requestor</th>
+        <th>Requested Date</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Notes</th>
+        <th>Chat with</th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var res in Model)
+                {
+                    <tr class="text-white requestColor_@res.RequestType">
+
+                        <td>@res.PatientName</td>
+                        <td>
+                            <a href="mailto:@res.Email"><i class="bi bi-envelope px-1 btn_dashtable"></i></a>
+                            @res.DOB
+                        </td>
+                        <td>@res.RequestorName</td>
+                        <td>@res.RequestDate</td>
+                        <td class="d-flex flex-column">
+                            <span><a href="tel:@res.PatientPhone"><i class="bi bi-telephone px-1 btn_dashtable"> @res.PatientPhone</i></a></span>
+                            <span>(Patient)</span>
+                            @if (@res.RequestorPhone != null)
+                            {
+                                <span><a href="tel:@res.RequestorPhone"><i class="bi bi-telephone px-1 btn_dashtable"> @res.RequestorPhone</i></a></span>
+                                <span>(New)</span>
+                            }
+                        </td>
+                        <td>@res.Address</td>
+                        <td>@res.Notes</td>
+                        <td>
+                            <div>
+                                <button class="btn_dashtable">Patient</button>
+                                <button class="btn_dashtable">Provider</button>
+                            </div>
+                        </td>
+                        <td class="">
+                        <select class="form-control btn_dashtable w-50 text-center" style="padding:0px;" id="Action" asp-route-requestId="@res.Id">
+                            <option selected disabled class="text-center">Action</option>
+                            <option><a>Assign Case</a></option>
+                            <option><a>Cancel Case</a></option>
+                            <option  value="viewCase">View Case</option>
+                            <option><a>View Notes</a></option>
+                            <option><a>Block Patient</a></option>
+                         </select>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+<script>
+    $(document).ready
+        (
+            function () {
+                $("#Action").change( function () {
+                    var action=$(this).val();
+                    console.log(action);
+                    $.ajax({
+                        url: "https://localhost:44347/Home/"+action,
+                        data: {
+                            requestId: $("#Action").attr("asp-route-requestId")
+                        },
+                        success: function (result) {
+                            
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    })
+                }
+                )
+            }
+        )
+</script>
+   
+
