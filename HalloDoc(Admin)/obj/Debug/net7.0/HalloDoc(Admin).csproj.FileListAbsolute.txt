@@ -260,3 +260,10 @@ D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\HalloDoc(Admin)
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\obj\Debug\net7.0\HalloDoc(Admin).csproj.CopyComplete
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\obj\Debug\net7.0\HalloDoc(Admin).genruntimeconfig.cache
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\obj\Debug\net7.0\ref\HalloDoc(Admin).dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\ClosedXML.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\ExcelNumberFormat.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\Irony.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\SixLabors.Fonts.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.IO.Packaging.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\XLParser.dll

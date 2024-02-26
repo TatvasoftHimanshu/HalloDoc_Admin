@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\images\\icons\\active.svg"
     },
     {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\admin-users-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\admin-users-svgrepo-com.svg"
+    },
+    {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\caret-down-fil3.svg",
       "PackagePath": "staticwebassets\\images\\icons\\caret-down-fil3.svg"
     },
@@ -53,6 +57,14 @@
       "PackagePath": "staticwebassets\\images\\icons\\conclude.svg"
     },
     {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\doctor-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\doctor-svgrepo-com.svg"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\export.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\export.svg"
+    },
+    {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\new.svg",
       "PackagePath": "staticwebassets\\images\\icons\\new.svg"
     },
@@ -61,8 +73,24 @@
       "PackagePath": "staticwebassets\\images\\icons\\pending.svg"
     },
     {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\person-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\person-svgrepo-com.svg"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\request-quote-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\request-quote-svgrepo-com.svg"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\right-arrow-outline-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\right-arrow-outline-svgrepo-com.svg"
+    },
+    {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\toclose.svg",
       "PackagePath": "staticwebassets\\images\\icons\\toclose.svg"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\transfer-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\transfer-svgrepo-com.svg"
     },
     {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\unpaid.svg",

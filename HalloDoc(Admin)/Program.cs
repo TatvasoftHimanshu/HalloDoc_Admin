@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<HalloDocContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 builder.Services.AddScoped<IDashboardAdmin,DashboardAdmin>();
-builder.Services.AddScoped<IViewCase, ViewCase>();
+builder.Services.AddScoped<IAction, RequestAction>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

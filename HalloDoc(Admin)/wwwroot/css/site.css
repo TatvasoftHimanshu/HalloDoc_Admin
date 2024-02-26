@@ -146,3 +146,33 @@ a {
     transition: all 0.15s ease-out;
     color: #01BCE9;
 }
+
+.viewNote {
+    border-radius: 10px;
+    min-height: 120px;
+    background-color:white;
+}
+
+    .viewNote div {
+        margin-left: 30px;
+    }
+.btn_dash {
+    color: #00b3fa;
+    border: 1px solid #00b3fa;
+    border-radius: 5px;
+}
+.form-control:focus {
+    border: 2px solid #00b3fa;
+    box-shadow: none;
+}
+.modal-header {
+    background-color: #18b6d1;
+    color: white;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border:none;
+}
+,modal-content{
+    border-radius:5px;
+    border:none;
+}

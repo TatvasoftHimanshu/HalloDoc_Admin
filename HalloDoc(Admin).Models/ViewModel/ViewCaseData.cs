@@ -9,6 +9,7 @@ namespace HalloDoc_Admin_.Entities.ViewModel
     public class ViewCaseData
     {
         public int RequestId { get; set; }
+        public int requestType { get; set; }
         public string ConFirmationNumber { get; set; }
         public string Symptoms { get; set; }
         public string FirstName { get; set; }

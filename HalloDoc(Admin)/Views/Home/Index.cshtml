@@ -81,11 +81,53 @@
             <h4 style="color:#172C93">(<span id="StatusName"></span>)</h4>
             </div>
             <div class="d-flex flex-row">
-                <a href="" class="btn_admin py-2 px-3 m-1 d-block"><img src="images/send.svg"/> Send Link</a>
-            <a href="" class="btn_admin py-2 px-3 m-1 d-block"><img src="images/icons/caret-down-fill4.svg" /> Create Requests</a>
-            <a href="" class="btn_admin py-2 px-3 m-1 d-block"><img src="images/send.svg" /> Export</a>
-            <a href="" class="btn_admin py-2 px-3 m-1 d-block"><img src="images/send.svg" /> Exort All</a>
-            <a href="" class="btn_admin py-2 px-3 m-1 d-block"><img src="images/send.svg" /> Request DIY Support</a>
+
+                <button type="button" class="btn_admin py-2 px-3 m-1 d-block border-0" data-bs-toggle="modal" data-bs-target="#sendLink_box"><img src="~/images/send.svg"/> Send Link</button>
+            <div class="modal fade text-center " id="sendLink_box">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content border-0">
+                        <div class="modal-header">
+                            <h6 class="modal-title">Send mail to patient for submitting request</h6>
+                            <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                           
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="group mb-1 col-12">
+                                        <input type="text" class="form-control input-field p-2" placeholder="" @*asp-for=""*@>
+                                        <label for="" class="placeholder">First Name</label>
+                                        <span @*asp-validation-for=""*@ class="text-danger"></span>
+                                    </div>
+                                    <div class="group mb-1 col-12">
+                                        <input type="text" class="form-control input-field p-2" placeholder="" @*asp-for=""*@>
+                                        <label for="" class="placeholder">Your Last Name</label>
+                                        <span @*asp-validation-for=""*@ class="text-danger"></span>
+                                    </div>
+                                    <div class="group mb-1 col-12">
+                                        <input type="tel" class="form-control input-field p-2" id="phone" name="phone" placeholder="Phone" @*asp-for=""*@>
+                                        <span @*asp-validation-for=""*@ class="text-danger"></span>
+                                    </div>
+                                    <div class="group mb-1 col-12">
+                                        <input type="email" class="form-control input-field p-2" id="" placeholder="" @*asp-for=""*@>
+                                        <label for="" class="placeholder">Your Email</label>
+                                        <span @*asp-validation-for=""*@ class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <button type="button" class="btn btn_admin selected" id="" onclick="sendLink()">Send</button>
+                                    <button type="button" class="btn btn_dash" data-bs-dismiss="modal" >Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            <a  class="btn_admin py-2 px-3 m-1 d-block" asp-controller="" asp-action=""><img src="/images/icons/request-quote-svgrepo-com.svg" style="width:20px;" class="border-0"/> Create Requests</a>
+            <a  class="btn_admin py-2 px-3 m-1 d-block" asp-controller="Home" asp-action="ExportDataByStatus"><img src="~/images/icons/right-arrow-outline-svgrepo-com.svg" style="width:20px;" /> Export</a>
+            <a  class="btn_admin py-2 px-3 m-1 d-block" asp-controller="Home" asp-action="ExportAllData"><img src="/images/icons/export.svg" style="width:20px;" /> Exort All</a>
+            <a  class="btn_admin py-2 px-3 m-1 d-block"><img src="/images/icons/person-svgrepo-com.svg" style="width:20px;" /> Request DIY Support</a>
             </div>
         </div>
         <div class="bg-white" style="border-radius: 10px;">
@@ -137,6 +179,7 @@
         </div>
     </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -184,4 +227,19 @@
 
         }
     }
+
+        var modelData = @Html.Raw(Json.Serialize(Model));
+    console.log(modelData);
+    function openAction(index) {
+        console.log();
+
+        window.location.href = '/Home/' + document.getElementById("Action_" + modelData[index].id).value + '?requestId=' + modelData[index].id;
+
+    }
+
+    //const phoneInputField = document.querySelector("#phone");
+    //const phoneInput = window.intlTelInput(phoneInputField, {
+    //    utilsScript:
+    //        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    //});
 </script>

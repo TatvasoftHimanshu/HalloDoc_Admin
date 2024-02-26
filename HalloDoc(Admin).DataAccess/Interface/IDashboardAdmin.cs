@@ -10,6 +10,7 @@ namespace HalloDoc_Admin_.Repositories.Interface
     public interface IDashboardAdmin
     {
         List<DashboardAdminData> GetDataByStatus(List<int> status);
+        List<DashboardAdminData> GetAllData();
         List<int> GetCountByStatus();
         void Save();
     }

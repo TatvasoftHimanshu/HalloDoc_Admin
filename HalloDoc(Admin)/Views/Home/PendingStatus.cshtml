@@ -18,7 +18,7 @@
     <tbody>
         @if (Model != null)
         {
-            @foreach (var res in Model)
+            @foreach (var (res,i) in Model.Select((res,i)=>(res,i)))
             {
                 <tr class="text-white requestColor_@res.RequestType">
 
@@ -48,14 +48,14 @@
                         </div>
                     </td>
                     <td>
-                        <select class="form-control btn_dashtable w-50 text-center" value="Action" style="padding:0px;">
+                        <select class="form-control btn_dashtable w-50 text-center" id="Action_@res.Id" style="padding:0px;" onchange="openAction(@i)">
                             <option selected disabled class="text-center">Action</option>
-                            <option><a>View Case</a></option>
-                            <option><a>View Uploads</a></option>
-                            <option><a>View Notes</a></option>
-                            <option><a>Transfer</a></option>
-                            <option><a>Clear Case</a></option>
-                            <option><a>Send Agreement</a></option>
+                            <option value="viewCase">View Case</option>
+                            <option value="viewUpload">View Uploads</option>
+                            <option value="viewNotes">View Notes</option>
+                            <option value="Transfer">Transfer</option>
+                            <option value="clearCase">Clear Case</option>
+                            <option value="sendAgreement">Send Agreement</option>
                         </select>
                     </td>
                 </tr>
@@ -63,4 +63,15 @@
         }
     </tbody>
 </table>
+<script>
+
+    var modelData = @Html.Raw(Json.Serialize(Model));
+    console.log(modelData);
+    function openAction(index) {
+        console.log();
+
+        window.location.href = '/Action/' + document.getElementById("Action_" + modelData[index].id).value + '?requestId=' + modelData[index].id;
+
+    }
+</script>
 

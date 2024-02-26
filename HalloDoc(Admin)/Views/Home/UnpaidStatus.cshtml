@@ -47,9 +47,9 @@
                     <td>
                         <select class="form-control btn_dashtable w-50 text-center" value="Action" style="padding:0px;">
                             <option selected disabled class="text-center">Action</option>
-                            <option><a>View Case</a></option>
-                            <option><a>View Uploads</a></option>
-                            <option><a>View Notes</a></option>
+                            <option value="viewCase">View Case</option>
+                            <option value="viewUploads">View Uploads</option>
+                            <option value="viewNotes">View Notes</option>
                         </select>
                     </td>
                 </tr>
@@ -57,4 +57,11 @@
         }
     </tbody>
 </table>
+<script>
 
+    var modelData = @Html.Raw(Json.Serialize(Model));
+    console.log(modelData);
+    function openAction(index) {
+        window.location.href = '/Action/' + document.getElementById("Action_" + modelData[index].id).value + '?requestId=' + modelData[index].id;
+    }
+</script>

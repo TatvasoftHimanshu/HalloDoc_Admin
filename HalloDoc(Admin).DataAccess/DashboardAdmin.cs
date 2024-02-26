@@ -33,6 +33,38 @@ namespace HalloDoc_Admin_.Repositories
 
         }
 
+        List<DashboardAdminData> IDashboardAdmin.GetAllData()
+        {
+            var data = (from request in _context.Requests
+                        join Client in _context.RequestClients on request.RequestId equals Client.RequestId into requestGroup
+                        from result in requestGroup.DefaultIfEmpty()
+                        join statusLog in _context.RequestStatusLogs on request.RequestId equals statusLog.RequestId into statusLogGroup
+                        from logResult in statusLogGroup.DefaultIfEmpty()
+                        join physician in _context.Physicians on request.PhysicianId equals physician.PhysicianId into requestedPhysician
+                        from result1 in requestedPhysician.DefaultIfEmpty()
+                        select new DashboardAdminData
+                        {
+                            Id = request.RequestId,
+                            RequestType = request.RequestTypeId,
+                            RequestStatus = request.Status,
+                            RequestorName = request.FirstName + " " + request.LastName,
+                            DOB = result != null ? @$"{result.IntDate}/{result.StrMonth}/{result.IntYear}" : "",
+                            DataofService = logResult.CreatedDate,
+                            RequestDate = request.CreatedDate,
+                            PatientName = result != null ? result.FirstName + " " + result.LastName : "",
+                            Email = result != null && result.Email != null ? result.Email : "",
+                            PatientPhone = result != null ? result.PhoneNumber : "",
+                            RequestorPhone = request.PhoneNumber,
+                            Address = result != null ? result.Address : "",
+                            Notes = result != null ? result.Notes : "",
+                            PhysicianId = result1 != null ? result1.PhysicianId : 0,
+                            PhysicianName = result1.FirstName + " " + result1.LastName,
+
+                        }).ToList();
+
+            return data;
+        }
+
         List<DashboardAdminData> IDashboardAdmin.GetDataByStatus(List<int> status)
         {
            var data = (from request in _context.Requests
