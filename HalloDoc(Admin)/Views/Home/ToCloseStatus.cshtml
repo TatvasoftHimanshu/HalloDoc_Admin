@@ -1,0 +1,67 @@
+﻿@model List<HalloDoc_Admin_.Entities.ViewModel.DashboardAdminData>
+@{
+
+}
+<table class="table  bg-light" id="adminTable">
+    <thead>
+    <th>Name</th>
+    <th class="text-center">Date of Birth</th>
+    <th>Region</th>
+    <th>Physician Name</th>
+    <th>Date Of Service</th>
+    <th>Address</th>
+    <th>Notes</th>
+    <th>Chat with</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var res in Model)
+            {
+                <tr class="text-white requestColor_@res.RequestType" >
+
+                    <td>@res.PatientName</td>
+                    <td>
+                        <a href="mailto:@res.Email"><i class="bi bi-envelope px-1 btn_dashtable"></i></a>
+                        @res.DOB
+                    </td>
+                    <td>@res.Region</td>
+                    <td>@res.PhysicianName</td>
+                    <td>@res.DataofService</td>
+                    <td>@res.Address</td>
+                    <td>@res.Notes</td>
+                    <td>
+                        <div>
+                            <button class="btn_dashtable">Patient</button>
+                            <button class="btn_dashtable">Provider</button>
+                        </div>
+                    </td>
+                    <td>
+                        <select class="form-control btn_dashtable w-50 text-center" value="Action" style="padding:0px;">
+                            <option selected disabled class="text-center">Action</option>
+                            <option value="viewCase">View Case</option>
+                            <option value="viewUploads">View Uploads</option>
+                            <option value="viewNotes">View Notes</option>
+                            <option value="Orders">Orders</option>
+                            <option value="closeCase">Close Case</option>
+                            <option value="docNote">Doctors Note</option>
+                            <option value="clearCase">Clear Case</option>
+                            <option value="Encounter">Encounter</option>
+                        </select>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+
+    var modelData = @Html.Raw(Json.Serialize(Model));
+    console.log(modelData);
+    function openAction(index) {
+        window.location.href = '/Action/' + document.getElementById("Action_" + modelData[index].id).value + '?requestId=' + modelData[index].id;
+    }
+</script>
+

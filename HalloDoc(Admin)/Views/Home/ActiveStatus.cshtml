@@ -1,0 +1,77 @@
+﻿@model List<HalloDoc_Admin_.Entities.ViewModel.DashboardAdminData>
+@{
+
+}
+<table class="table  bg-light" id="adminTable">
+    <thead>
+    <th>Name</th>
+    <th class="text-center">Date of Birth</th>
+    <th>Requestor</th>
+    <th>Physician Name</th>
+    <th>Date Of Service</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Notes</th>
+    <th>Chat with</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var (res, i) in Model.Select((res, i) => (res, i)))
+            {
+                <tr class="text-white requestColor_@res.RequestType">
+
+                    <td>@res.PatientName</td>
+                    <td>
+                        <a href="mailto:@res.Email"><i class="bi bi-envelope px-1 btn_dashtable"></i></a>
+                        @res.DOB
+                    </td>
+                    <td>@res.RequestorName</td>
+                    <td>@res.PhysicianName</td>
+                    <td>@res.DataofService</td>
+                    <td class="d-flex flex-column">
+                        <span><a href="tel:@res.PatientPhone"><i class="bi bi-telephone px-1 btn_dashtable"> @res.PatientPhone</i></a></span>
+                        <span>(Patient)</span>
+                        @if (@res.RequestorPhone != null)
+                        {
+                            <span><a href="tel:@res.RequestorPhone"><i class="bi bi-telephone px-1 btn_dashtable"> @res.RequestorPhone</i></a></span>
+                            <span>()</span>
+                        }
+                    </td>
+                    <td>@res.Address</td>
+                    <td>@res.Notes</td>
+                    <td>
+                        <div>
+                            <button class="btn_dashtable">Patient</button>
+                            <button class="btn_dashtable">Provider</button>
+                        </div>
+                    </td>
+                    <td>
+                        <select class="form-control btn_dashtable w-50 text-center" value="Action" style="padding:0px;" onchange="openAction(@i)" id="Action_@res.Id">
+                            <option selected disabled class="text-center">Action</option>
+                            <option value="viewCase">View Case</option>
+                            <option value="viewUploads">View Uploads</option>
+                            <option value="viewNotes">View Notes</option>
+                            <option value="Orders">Orders</option>
+                            <option value="docNote">Doctor Note</option>
+                            <option value="Encounter">Encounter</option>
+                        </select>
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+    var modelData = @Html.Raw(Json.Serialize(Model));
+    console.log(modelData);
+    function openAction(index) {
+        console.log();
+
+        window.location.href = '/Action/' + document.getElementById("Action_" + modelData[index].id).value + '?requestId=' + modelData[index].id;
+
+    }
+</script>

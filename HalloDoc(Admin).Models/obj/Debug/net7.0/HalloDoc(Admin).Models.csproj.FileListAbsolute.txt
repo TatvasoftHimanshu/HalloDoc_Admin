@@ -1,0 +1,14 @@
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\bin\Debug\net7.0\HalloDoc(Admin).Models.deps.json
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\bin\Debug\net7.0\HalloDoc(Admin).Models.runtimeconfig.json
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\bin\Debug\net7.0\HalloDoc(Admin).Models.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\bin\Debug\net7.0\HalloDoc(Admin).Models.pdb
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\HalloDoc(Admin).Models.csproj.AssemblyReference.cache
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\HalloDoc(Admin).Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\HalloDoc(Admin).Models.AssemblyInfoInputs.cache
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\HalloDoc(Admin).Models.AssemblyInfo.cs
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\HalloDoc(Admin).Models.csproj.CoreCompileInputs.cache
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\HalloDoc(Admin).Models.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\refint\HalloDoc(Admin).Models.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\HalloDoc(Admin).Models.pdb
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\HalloDoc(Admin).Models.genruntimeconfig.cache
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).Models\obj\Debug\net7.0\ref\HalloDoc(Admin).Models.dll

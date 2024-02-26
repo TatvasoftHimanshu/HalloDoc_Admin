@@ -1,0 +1,15 @@
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\bin\Debug\net7.0\HalloDoc(Admin).Repositories.deps.json
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\bin\Debug\net7.0\HalloDoc(Admin).Repositories.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\bin\Debug\net7.0\HalloDoc(Admin).Repositories.pdb
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\bin\Debug\net7.0\HalloDoc(Admin).Entities.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\bin\Debug\net7.0\HalloDoc(Admin).Entities.pdb
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\HalloDoc(Admin).Repositories.csproj.AssemblyReference.cache
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\HalloDoc(Admin).Repositories.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\HalloDoc(Admin).Repositories.AssemblyInfoInputs.cache
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\HalloDoc(Admin).Repositories.AssemblyInfo.cs
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\HalloDoc(Admin).Repositories.csproj.CoreCompileInputs.cache
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\HalloDoc(Admin).Repositories.csproj.CopyComplete
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\HalloDoc(Admin).Repositories.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\refint\HalloDoc(Admin).Repositories.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\HalloDoc(Admin).Repositories.pdb
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin).DataAccess\obj\Debug\net7.0\ref\HalloDoc(Admin).Repositories.dll
