@@ -1,0 +1,19 @@
+﻿
+  @if(TempData["success"]!=null)
+  {
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.success(@TempData["success"])
+    </script>
+  }
+
+  @if(TempData["error"]!=null)
+  {
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.error(@TempData["error"])
+    </script>
+  }

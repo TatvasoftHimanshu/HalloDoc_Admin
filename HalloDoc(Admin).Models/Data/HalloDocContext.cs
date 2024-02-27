@@ -587,16 +587,13 @@ public partial class HalloDocContext : DbContext
             entity.Property(e => e.AdminNotes).HasMaxLength(500);
             entity.Property(e => e.AdministrativeNotes).HasMaxLength(500);
             entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
-            entity.Property(e => e.IntDate).HasColumnName("intDate");
-            entity.Property(e => e.IntYear).HasColumnName("intYear");
+           
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("IP");
             entity.Property(e => e.ModifiedDate).HasColumnType("timestamp without time zone");
             entity.Property(e => e.PhysicianNotes).HasMaxLength(500);
-            entity.Property(e => e.StrMonth)
-                .HasMaxLength(20)
-                .HasColumnName("strMonth");
+
 
             entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.RequestNoteCreatedByNavigations)
                 .HasForeignKey(d => d.CreatedBy)

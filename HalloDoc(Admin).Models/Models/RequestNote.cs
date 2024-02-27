@@ -9,12 +9,6 @@ public partial class RequestNote
 
     public int RequestId { get; set; }
 
-    public string? StrMonth { get; set; }
-
-    public int? IntYear { get; set; }
-
-    public int? IntDate { get; set; }
-
     public string? PhysicianNotes { get; set; }
 
     public string? AdminNotes { get; set; }

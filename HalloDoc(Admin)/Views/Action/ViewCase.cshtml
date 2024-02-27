@@ -30,7 +30,7 @@
             <h2 class=" col-12" id="role-head">Patient Information</h2>
             <p>Confirmation Number</p>
     <h3 style="color:#45D6F1">@Model.ConFirmationNumber</h3>
-    <form class="w-100 mb-5" method="post" asp-controller="Home" asp-action="ViewCase" enctype="multipart/form-data">
+    <form class="w-100 mb-5" method="post" asp-controller="Action" asp-action="UpdateCase" asp-route-id="@Model.RequestId" enctype="multipart/form-data">
         <div class="row mb-3">
             <div class="group mb-3 col-12">
                 <textarea class="form-control input-field" id="" rows="3" placeholder="" asp-for="Symptoms" readonly></textarea>
@@ -40,51 +40,57 @@
         <hr />
         <div class="row mb-3 align-items-center">
             <div class="group mb-3 col-xl-6 col-sm-12">
-                <input type="text" class="form-control input-field" id="" placeholder="" asp-for="FirstName" readonly>
+                <input type="text" class="form-control input-field input-field1 pt-3" id="" placeholder="" asp-for="FirstName" readonly>
                 <label for="" class="placeholder">First Name </label>
                 <span @*asp-validation-for=""*@ class="text-danger"></span>
             </div>
             <div class="group mb-3 col-xl-6 col-sm-12">
-                <input type="text" class="form-control input-field" placeholder="" asp-for="LastName" readonly>
+                <input type="text" class="form-control input-field input-field1 pt-3" placeholder="" asp-for="LastName" readonly>
                 <label for="" class="placeholder">Last Name</label>
                 <span @*asp-validation-for=""*@ class="text-danger"></span>
             </div>
-            <div class="group mb-3 col-xl-6 col-sm-12">
-                <input placeholder="Date Of Birth" onfocus="(this.type='date')" onblur="(this.type='text')"
-                       class="form-control" id="" asp-for="DOB" readonly>
-                <label for="" class="placeholder"></label>
+            <div class="group mb-3 col-xl-6 col-sm-12 input-field1">
+                <input placeholder="" onfocus="(this.type='date')" onblur="(this.type='text')"
+                       class="form-control input-field1 input-field pt-3" id="" asp-for="DOB" readonly>
+                <label for="" class="placeholder">Date Of Birth</label>
                 <span @*asp-validation-for=""*@ class="text-danger"></span>
             </div>
             <div class="group mb-3 col-xl-5 col-sm-10">
-                <input type="tel" class="form-control input-field " id="phone" name="phone" placeholder="Phone" asp-for="Phone" readonly>
+                <input type="tel" class="form-control input-field input-field1 pt-3" id="phone" name="phone" placeholder="" asp-for="Phone" readonly>
+                <label for="" class="placeholder">Phone</label>
                 <span @*asp-validation-for=""*@ class="text-danger"></span>
             </div>
             <a class="col-xl-1 col-sm-2"> <i class="bi bi-telephone  py-1 px-2" style="color:#45D6F1;border:1px solid #45D6F1;border-radius:5px"></i></a>
             <div class="group mb-3 col-xl-6 col-sm-12">
-                <input type="email" class="form-control input-field" id="patientemail" placeholder="" asp-for="Email" readonly>
+                <input type="email" class="form-control input-field input-field1 pt-3" id="patientemail" placeholder="" asp-for="Email" readonly>
                 <label for="" class="placeholder">Email </label>
                 <span @*asp-validation-for=""*@ class="text-danger"></span>
             </div>
             @if (Model.requestType != 1)
             {
-                <button type="button" class="col-xl-1 col-sm-12 btn btn-primary">Edit</button>
+                <button type="button" class="col-xl-1 col-sm-12 btn btn-primary" id="editCase_btn" onclick="editCase()">Edit</button>
+                
+                    <div class="" id="caseSave_btn">
+                        <button type="submit" class="btn btn_dash" onclick="saveCase()">Save</button>
+                        <a class="btn btn-light" onclick="cancelFields()">Cancel</a>
+                    </div>
             }
         </div>
         <div class="row mb-3 align-items-center">
             <h2 class=" col-12" id="role-head">Patient Location</h2>
             <div class="group mb-3 col-xl-6 col-sm-12">
-                <input type="text" class="form-control input-field" id="" placeholder="" asp-for="Region" readonly>
+                <input type="text" class="form-control input-field pt-3" id="" placeholder="" asp-for="Region" readonly>
                 <label for="" class="placeholder">Region</label>
                 <span @*asp-validation-for=""*@ class="text-danger"></span>
             </div>
             <div class="group mb-3 col-xl-5 col-sm-10">
-                <input type="text" class="form-control input-field" id="" placeholder="" asp-for="BusinessName" readonly>
+                <input type="text" class="form-control input-field pt-3" id="" placeholder="" asp-for="BusinessName" readonly>
                 <label for="" class="placeholder">Business Name/Address</label>
                 <span @*asp-validation-for=""*@ class="text-danger"></span>
             </div>
             <a class="col-xl-1 col-sm-2 "> <i class="bi bi-geo-alt  py-1 px-2" style="color:#45D6F1;border:1px solid #45D6F1;border-radius:5px"></i></a>
             <div class="group mb-3 col-xl-6 col-sm-12">
-                <input type="text" class="form-control input-field" id="" placeholder="" readonly>
+                <input type="text" class="form-control input-field pt-3" id="" placeholder="" readonly>
                 <label for="" class="placeholder">Room #</label>
                 <span @*asp-validation-for=""*@ class="text-danger"></span>
             </div>
@@ -94,8 +100,22 @@
             {
                 <button type="button" class="btn btn-primary">Assign</button>
             }
-            <button type="button" class="btn btn-primary">View Notes</button>
+            <a type="button" class="btn btn-primary" asp-controller="Action" asp-action="viewNotes" asp-route-requestId="@Model.RequestId">View Notes</a>
             <button type="button" class="btn btn-danger">Cancel</button>
         </div>
     </form>
 </div>
+<script>
+    var fields=document.getElementsByClassName("input-field1");
+    document.getElementById("caseSave_btn").style.display = "none";
+    function editCase() {
+        document.getElementById("editCase_btn").style.display="none";
+        document.getElementById("caseSave_btn").style.display = "block";
+        for(var i=0;i<fields.length;i++) {
+            fields[i].removeAttribute('readonly');
+        }
+    }
+    function cancelFields() {
+        location.reload();
+    }
+</script>
