@@ -10,5 +10,8 @@ namespace HalloDoc_Admin_.Repositories.Interface
     public interface IAction
     {
         ViewCaseData getViewCaseData(int id);
+        void updateCase(ViewCaseData viewCaseData);
+        ViewNotesData getViewNotesData(int id);
+        void updateNote( string Note, string noteType,int id);
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model HalloDoc_Admin_.Entities.ViewModel.ViewNotesData
 @{
 }
 
@@ -15,36 +15,101 @@
             <img src="/images/icons/transfer-svgrepo-com.svg" style="height: auto; width:50px" />
             <div>
                 <h4>Transfer Notes</h4>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, sunt. Ut obcaecati recusandae velit architecto reprehenderit et autem ea?
-                </p>
+                <div>
+                    @if (Model != null)
+                    {
+                        if (Model.TransferNote != null)
+                        {
+                            @foreach(var note in Model.TransferNote)
+                            @note
+                        }
+                        else
+                        {
+                        <p>-</p>
+                        }
+                    }
+                    else
+                    {
+                            <p>-</p>
+                    }
+
+                </div>
             </div>
         </div>
-        <div class="col-lg-5 col-sm-12 shadow d-flex flex-row p-2 align-items-center mb-4 viewNote">
+        <div class="col-lg-5 col-sm-12 shadow d-flex flex-row p-2 align-items-center mb-4 viewNote" onclick="setData('physicianNote')">
             <img src="/images/icons/doctor-svgrepo-com.svg" style="width:50px;height:auto;" />
             <div>
                 <h4>Physician Notes</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, ea.</p>
+                <div id="physicianNote">
+                    @if (Model != null)
+                    {
+                        if (Model.physicianNote != null)
+                        {
+                        @Model.physicianNote
+                        }
+                        else
+                        {
+                        <p>-</p>
+                        }
+                    }
+                    else
+                    {
+                        <p>-</p>
+                    }
+                 </div>
             </div>
         </div>
-        <div class="col-lg-5 col-sm-12 shadow d-flex flex-row p-2 align-items-center mb-4 viewNote">
+        <div class="col-lg-5 col-sm-12 shadow d-flex flex-row p-2 align-items-center mb-4 viewNote" onclick="setData('adminNote')">
             <img src="/images/icons/admin-users-svgrepo-com.svg" style="width:50px;height:auto;" />
             <div>
-                <h4>Physician Notes</h4>
-                <p>-</p>
+                <h4>Admin Note</h4>
+                <div id="adminNote">
+                    @if (Model != null)
+                    {
+                        if (Model.adminNote != null)
+                        {
+                            @Model.adminNote
+                        }
+                        else
+                        {
+                            <p>-</p>
+                        }
+                    }
+                    else
+                    {
+                        <p>-</p>
+                    }
+                </div>
             </div>
         </div>
     </div>
-    <div class="row p-3 shadow bg-white" style="border-radius:10px;">
+    <form class="row p-3 shadow bg-white" style="border-radius:10px;" asp-controller="Action" asp-action="updateNotes" asp-route-id="@Model.requestId" method="post" enctype="multipart/form-data">
         <div class="group mb-3 col-12">
-            <textarea class="form-control input-field p-3" id="" rows="5" placeholder=""></textarea>
-            <label for="" class="placeholder">Symptoms</label>
+            <textarea class="form-control input-field p-3" id="editNote" rows="5" placeholder="" name="Notes" required></textarea>
+            <label for="" class="placeholder" id="noteTitle">Symptoms</label>
         </div>
+            <input type="hidden" value="" id="noteType" name="noteType"/>
         <div class="mx-3 text-end">
-            <button class="btn btn_admin">
+            <button class="btn btn_admin" type="submit">
                 Save Changes
             </button>
         </div>
-    </div>
+    </form>
 
 </div>
+<script>
+    function setData(noteId)
+    {
+        document.getElementById('editNote').value = document.getElementById(noteId).innerText.trim();
+        if (noteId == "physicianNote")
+        {
+            document.getElementById('noteTitle').innerText="Physician Note";
+            document.getElementById('noteType').value="Physician";
+        }
+        else
+        {
+            document.getElementById('noteTitle').innerText = "Admin Note";
+            document.getElementById('noteType').value = "Admin";
+        }
+    }
+</script>

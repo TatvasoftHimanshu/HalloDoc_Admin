@@ -17,9 +17,24 @@ namespace HalloDoc_Admin_.Controllers
             ViewCaseData viewCaseData = _action.getViewCaseData(requestId);
             return View(viewCaseData);
         }
+        public IActionResult UpdateCase(ViewCaseData viewcaseData,int id)
+        {
+            viewcaseData.RequestId = id;
+            _action.updateCase(viewcaseData);
+            return RedirectToAction("viewCase",new {requestId=viewcaseData.RequestId});
+        }
         public IActionResult ViewNotes(int requestId)
         {
-            return View();
+            ViewNotesData notesData=new ViewNotesData();
+            notesData=_action.getViewNotesData(requestId);
+            return View(notesData);
         }
+
+        public IActionResult updateNotes(string Notes,string noteType,int id) 
+        {
+            _action.updateNote(Notes,noteType,id);
+            return RedirectToAction("viewNotes", new {requestId=id});
+        }
+
     }
 }
