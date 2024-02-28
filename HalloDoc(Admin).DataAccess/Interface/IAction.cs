@@ -1,4 +1,5 @@
 ﻿using HalloDoc_Admin_.Entities.ViewModel;
+using HalloDoc_Admin_.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,10 @@ namespace HalloDoc_Admin_.Repositories.Interface
         void updateCase(ViewCaseData viewCaseData);
         ViewNotesData getViewNotesData(int id);
         void updateNote( string Note, string noteType,int id);
+        void cancelCase(string reason,string notes,int id);
+        List<Region> getRegion();
+        List<Physician> GetPhysicianList(int id);
+        void assignCase(int regionid,int physicianId,string description,int id);
+        void blockCase(int id, string reason);
     }
 }

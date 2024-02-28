@@ -13,5 +13,6 @@ namespace HalloDoc_Admin_.Repositories.Interface
         List<DashboardAdminData> GetAllData();
         List<int> GetCountByStatus();
         void Save();
+        void SendMail(string Name,string subject,string mail);
     }
 }

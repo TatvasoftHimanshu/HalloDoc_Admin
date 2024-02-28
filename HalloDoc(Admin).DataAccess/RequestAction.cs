@@ -34,12 +34,92 @@ namespace HalloDoc_Admin_.Repositories
                             adminNote=item.AdminNotes
 
                         }).FirstOrDefault()??new ViewNotesData();
+            List<RequestStatusLog> otherNotes = _context.RequestStatusLogs
+                                    .Where(log => log.RequestId == id && new List<int>() { 3, 7 }.Contains(log.Status)).ToList();
+            foreach(var logs in otherNotes)
+            {
+                if(logs.Status==3)
+                {
+                    noteData.cancelNote = logs.Notes;
+                }
+                else if(logs.Status==7)
+                {
+                    noteData.patientCancelNote = logs.Notes;
+                }
+            }
             if(transferNotes!=null)
                 noteData.TransferNote.AddRange(transferNotes);
             noteData.requestId= id;
             
+
             return noteData;
 
+        }
+
+        void IAction.assignCase(int regionid, int physicianId, string description, int id)
+        {
+            RequestStatusLog requestStatusLog=new RequestStatusLog();
+            requestStatusLog.RequestId= id;
+            requestStatusLog.TransToPhysicianId= physicianId;
+            requestStatusLog.Notes = description;
+            requestStatusLog.CreatedDate = DateTime.Now;
+            requestStatusLog.Status = 2;
+            _context.RequestStatusLogs.Add(requestStatusLog);
+            Request request = _context.Requests.FirstOrDefault(x => x.RequestId == id);
+            request.Status = 2;
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+        }
+
+        void IAction.blockCase(int id, string reason)
+        {
+            BlockRequest blockRequest = new BlockRequest
+            {
+                RequestId=id.ToString(),
+                Reason=reason.Trim(),
+                CreatedDate= DateTime.Now
+            };
+            _context.BlockRequests.Add(blockRequest);
+            RequestStatusLog requestStatusLog = new RequestStatusLog();
+            requestStatusLog.RequestId = id;
+            requestStatusLog.CreatedDate = DateTime.Now;
+            requestStatusLog.Status = 10;
+            _context.RequestStatusLogs.Add(requestStatusLog);
+            Request request = _context.Requests.FirstOrDefault(x => x.RequestId == id);
+            request.Status = 10;
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+        }
+
+        void IAction.cancelCase(string reason, string notes, int id)
+        {
+            RequestStatusLog requestStatusLog = new RequestStatusLog
+            {
+                RequestId= id,
+                Status=3,
+                CreatedDate= DateTime.Now,
+                Notes= notes
+            };
+            _context.Add(requestStatusLog);
+            Request request = _context.Requests.FirstOrDefault(x => x.RequestId == id);
+            request.Status = 3;
+            request.ModifiedDate= DateTime.Now;
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+
+        }
+
+        List<Physician> IAction.GetPhysicianList(int id)
+        {
+            List<Physician> physicians=_context.Physicians.Where(x=>x.RegionId==id).ToList();
+            return physicians;
+        }
+
+        List<Region> IAction.getRegion()
+        {
+            List<Region> regions = new List<Region>();
+            regions = _context.Regions.ToList();
+            return regions;
         }
 
         ViewCaseData IAction.getViewCaseData(int requestId)

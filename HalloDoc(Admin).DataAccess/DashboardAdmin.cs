@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using HalloDoc_Admin_.Entities.Models;
 using System.Globalization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Net.Mail;
+using System.Net;
 
 namespace HalloDoc_Admin_.Repositories
 {
@@ -73,7 +75,7 @@ namespace HalloDoc_Admin_.Repositories
                        join statusLog in _context.RequestStatusLogs on request.RequestId equals statusLog.RequestId into statusLogGroup
                        from logResult in statusLogGroup.DefaultIfEmpty()
                        join physician in _context.Physicians on request.PhysicianId equals physician.PhysicianId into requestedPhysician
-                       from result1 in requestedPhysician.DefaultIfEmpty() where status.Contains(request.Status)
+                       from result1 in requestedPhysician.DefaultIfEmpty() where status.Contains(request.Status) && status.Contains(logResult.Status)
                        select new DashboardAdminData
                        {
                            Id=request.RequestId,
@@ -101,6 +103,44 @@ namespace HalloDoc_Admin_.Repositories
         void IDashboardAdmin.Save()
         {
             _context.SaveChanges();
+        }
+
+        void IDashboardAdmin.SendMail(string name,string subject, string mail)
+        {
+            string senderEmail = "practicetatvasoft@outlook.com";
+            string senderPassword = "Tatvasoft@123";
+
+            SmtpClient client = new SmtpClient("smtp.office365.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(senderEmail, senderPassword),
+                EnableSsl = true,
+                UseDefaultCredentials = false
+            };
+
+
+            
+           
+            string Link = $"https://localhost:44347/Login/";
+            string message = $@"<html>
+                                <body>  
+                                <h1>Hello {name} - Welcome To HalloDoc,</h1>
+                                <h3>Create New Account</h3>  
+                                <p><a href=""{Link}"">Create Account</a></p> 
+                                </body>
+                                </html>";
+            if (mail != null)
+            {
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress(senderEmail, "hallodoc@gmail.com"),
+                    Subject = subject,
+                    Body = message,
+                    IsBodyHtml = true
+                };
+                mailMessage.To.Add(mail);
+                client.Send(mailMessage);
+            }
         }
     }
 }

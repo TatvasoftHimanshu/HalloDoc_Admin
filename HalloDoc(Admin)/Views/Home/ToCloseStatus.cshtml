@@ -17,7 +17,7 @@
     <tbody>
         @if (Model != null)
         {
-            @foreach (var res in Model)
+            @foreach (var (res,i) in Model.Select((res,i)=>(res,i)))
             {
                 <tr class="text-white requestColor_@res.RequestType" >
 
@@ -38,7 +38,7 @@
                         </div>
                     </td>
                     <td>
-                        <select class="form-control btn_dashtable w-50 text-center" value="Action" style="padding:0px;">
+                        <select class="form-control btn_dashtable w-50 text-center" value="Action" id="Action_@res.Id" style="padding:0px;" onchange="openAction(@i)">
                             <option selected disabled class="text-center">Action</option>
                             <option value="viewCase">View Case</option>
                             <option value="viewUploads">View Uploads</option>

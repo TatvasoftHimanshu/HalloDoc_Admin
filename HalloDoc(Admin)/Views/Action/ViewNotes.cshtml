@@ -21,7 +21,10 @@
                         if (Model.TransferNote != null)
                         {
                             @foreach(var note in Model.TransferNote)
-                            @note
+                            { 
+                                <span>-</span>@note<br />
+                            }
+                            
                         }
                         else
                         {
@@ -82,6 +85,36 @@
                 </div>
             </div>
         </div>
+        @if (Model != null && Model.cancelNote != null)
+        {
+            @if (!Model.cancelNote.Trim().Equals(string.Empty))
+            {
+                <div class="col-lg-5 col-sm-12 shadow d-flex flex-row p-2 align-items-center mb-4 viewNote">
+                    <img src="/images/icons/admin-users-svgrepo-com.svg" style="width:50px;height:auto;" />
+                    <div>
+                        <h4>Admin Cancelletion Note</h4>
+                        <div>
+                            @Model.cancelNote
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        @if (Model != null && Model.patientCancelNote!=null)
+        {
+            @if (!Model.patientCancelNote.Trim().Equals(string.Empty))
+            {
+                <div class="col-lg-5 col-sm-12 shadow d-flex flex-row p-2 align-items-center mb-4 viewNote">
+                    <img src="/images/icons/admin-users-svgrepo-com.svg" style="width:50px;height:auto;" />
+                    <div>
+                    <h4>Patient Cancelletion Note</h4>
+                    <div>
+                        @Model.patientCancelNote
+                    </div>
+                    </div>
+                </div>
+            }
+        }
     </div>
     <form class="row p-3 shadow bg-white" style="border-radius:10px;" asp-controller="Action" asp-action="updateNotes" asp-route-id="@Model.requestId" method="post" enctype="multipart/form-data">
         <div class="group mb-3 col-12">

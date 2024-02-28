@@ -26,7 +26,7 @@ namespace HalloDoc_Admin_.Controllers
         public IActionResult ViewNotes(int requestId)
         {
             ViewNotesData notesData=new ViewNotesData();
-            notesData=_action.getViewNotesData(requestId);
+            notesData =_action.getViewNotesData(requestId);
             return View(notesData);
         }
 
@@ -35,6 +35,32 @@ namespace HalloDoc_Admin_.Controllers
             _action.updateNote(Notes,noteType,id);
             return RedirectToAction("viewNotes", new {requestId=id});
         }
+        public IActionResult cancelCase(IFormCollection form,int requestId)
+        {
+            _action.cancelCase(form["reason"], form["Notes"], requestId);
+            return RedirectToAction("Index","Home");
+        }
 
+        public IActionResult GetRegion()
+        {
+            return Json(new {regionlist=_action.getRegion()});
+        }
+        [HttpPost]
+        public IActionResult GetPhysicianByRegion(int regionId)
+        {
+            return Json(new { physicianlist = _action.GetPhysicianList(regionId) });
+        }
+        public IActionResult assignCase(IFormCollection form,int requestId)
+        {
+            int.TryParse(form["Region"], out int regionId);
+            int.TryParse(form["Physician"], out int physicianId);
+            _action.assignCase(regionId,physicianId, form["Description"], requestId);
+            return RedirectToAction("Index", "Home");
+        }
+        public IActionResult blockCase(int requestId,IFormCollection form)
+        {
+            _action.blockCase(requestId, form["Reason"]);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
