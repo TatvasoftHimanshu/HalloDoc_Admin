@@ -92,30 +92,30 @@
                         </div>
                         <div class="modal-body">
                            
-                            <form>
+                            <form method="post" asp-controller="Home" asp-action="sendLink">
                                 <div class="row mb-3">
                                     <div class="group mb-1 col-12">
-                                        <input type="text" class="form-control input-field p-2" placeholder="" @*asp-for=""*@>
+                                        <input type="text" class="form-control input-field pt-3" placeholder="" name="Firstname" required>
                                         <label for="" class="placeholder">First Name</label>
                                         <span @*asp-validation-for=""*@ class="text-danger"></span>
                                     </div>
                                     <div class="group mb-1 col-12">
-                                        <input type="text" class="form-control input-field p-2" placeholder="" @*asp-for=""*@>
+                                        <input type="text" class="form-control input-field pt-3" placeholder="" @*asp-for=""*@ name="Lastname">
                                         <label for="" class="placeholder">Your Last Name</label>
                                         <span @*asp-validation-for=""*@ class="text-danger"></span>
                                     </div>
                                     <div class="group mb-1 col-12">
-                                        <input type="tel" class="form-control input-field p-2" id="phone" name="phone" placeholder="Phone" @*asp-for=""*@>
+                                        <input type="tel" class="form-control input-field" id="phone" name="phone" placeholder="Phone" @*asp-for=""*@>
                                         <span @*asp-validation-for=""*@ class="text-danger"></span>
                                     </div>
                                     <div class="group mb-1 col-12">
-                                        <input type="email" class="form-control input-field p-2" id="" placeholder="" @*asp-for=""*@>
+                                        <input type="email" class="form-control input-field pt-3" required name="Email" placeholder="">
                                         <label for="" class="placeholder">Your Email</label>
                                         <span @*asp-validation-for=""*@ class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="text-end">
-                                    <button type="button" class="btn btn_admin selected" id="" onclick="sendLink()">Send</button>
+                                    <button type="Submit" class="btn btn_admin selected" id="" onclick="sendLink()">Send</button>
                                     <button type="button" class="btn btn_dash" data-bs-dismiss="modal" >Cancel</button>
                                 </div>
                             </form>
@@ -196,21 +196,27 @@
         var allCards = document.getElementsByClassName("crd");
         var allElements = document.getElementsByClassName("element");
         var statusTag = document.getElementById("StatusName");
-        for (var i = 0; i < 6; i++) {
-        switch(index){
-                case 0:
-                statusTag.innerText="New";
-                case 1:
+        switch (index) {
+            case 0:
+                statusTag.innerText = "New";
+                break;
+            case 1:
                 statusTag.innerText = "Pending";
-                case 2:
+                break;
+            case 2:
                 statusTag.innerText = "Active";
-                case 3:
+                break;
+            case 3:
                 statusTag.innerText = "Coclude";
-                case 4:
+                break;
+            case 4:
                 statusTag.innerText = "To Close";
-                case 5:
+                break;
+            case 5:
                 statusTag.innerText = "Unpaid";
+                break;
         }
+        for (var i = 0; i < 6; i++) {
             statusInput.value=index+1;
             if (i == index) {
                 allElements[i].classList.add("activeElement");

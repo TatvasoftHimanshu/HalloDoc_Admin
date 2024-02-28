@@ -51,8 +51,105 @@
                             <option value="cancelCase">Cancel Case</option>
                             <option value="viewCase">View Case</option>
                             <option value="viewNotes"><a>View Notes</a></option>
-                            <option value="blockPatient"><a>Block Patient</a></option>
+                            <option value="blockCase"><a>Block Patient</a></option>
                          </select>
+
+
+                        <div class="modal fade text-center " id="cancelCase_box">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content border-0">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title">Confirm Cancellation</h6>
+                                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body" style="color:black;text-align:start">
+                                        <form asp-route-requestId="@res.Id" class="px-3" method="post" asp-controller="Action" asp-action="cancelCase">
+                                            <div class="row mb-3">
+                                                <span class="mb-3 p-0">Patient name : <span style="color:#18b6d1">@res.PatientName</span></span>
+                                                <select class="form-control p-2" style="padding:0px;" name="reason" required>
+                                                    <option selected disabled>Reasons for Cancellation</option>
+                                                    <option value="">Assign Case</option>
+                                                    <option value="">Cancel Case</option>
+                                                    <option value="">View Case</option>
+                                                    <option value="">View Notes</option>
+                                                    <option value="">Block Patient</option>
+                                                </select>
+                                                <div class="group mb-1 px-0 col-12">
+                                                    <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Notes"></textarea>
+                                                    <label for="" class="placeholder">Provide Additional Notes</label>
+                                                    <span @*asp-validation-for=""*@ class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="text-end">
+                                                <button type="submit" class="btn btn_admin selected" id="" onclick="">Confirm</button>
+                                                <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal fade text-center " id="assignCase_box">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content border-0">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title">Assign Request</h6>
+                                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body" style="color:black;text-align:start">
+                                        <form asp-route-requestId="@res.Id" class="px-3" method="post" asp-controller="Action" asp-action="assignCase">
+                                            <div class="row mb-3">
+                                                <span class="mb-3 p-0">To assign this request,search and select another Physician</span>
+                                                <select class="form-control p-2 mb-3" style="padding:0px;" name="region" id="Regionlist" required onchange="showPhysicianByRegion()">
+                                                    <option selected disabled>Search by Region</option>
+                                                </select>
+                                                <select class="form-control p-2" style="padding:0px;" name="Physician" required  id="Physicianlist">
+                                                    <option selected disabled>Select Physician</option>
+                                                </select>
+                                                <div class="group mb-1 px-0 col-12">
+                                                    <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Description"></textarea>
+                                                    <label for="" class="placeholder">Description</label>
+                                                    <span @*asp-validation-for=""*@ class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="text-end">
+                                                <button type="submit" class="btn btn_admin selected" id="" onclick="">Submit</button>
+                                                <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade text-center " id="blockCase_box">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content border-0">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title">Confirm Block</h6>
+                                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body" style="color:black;text-align:start">
+                                        <form asp-route-requestId="@res.Id" class="px-3" method="post" asp-controller="Action" asp-action="blockCase">
+                                            <div class="row mb-3">
+                                                <span class="mb-3 p-0">Patient name : <span style="color:#18b6d1">@res.PatientName</span></span>
+                                                <div class="group mb-1 px-0 col-12">
+                                                    <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Reason"></textarea>
+                                                    <label for="" class="placeholder">Reason for Block Request</label>
+                                                    <span @*asp-validation-for=""*@ class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="text-end">
+                                                <button type="submit" class="btn btn_admin selected">Confirm</button>
+                                                <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </td>
                     </tr>
                 }
@@ -62,13 +159,58 @@
 <script>
     
     var modelData = @Html.Raw(Json.Serialize(Model));
-    console.log(modelData);
     function openAction(index) {
-        console.log();
-        
-            window.location.href = '/Action/' + document.getElementById("Action_"+modelData[index].id).value + '?requestId=' + modelData[index].id;
-       
+        var actionValue = document.getElementById("Action_" + modelData[index].id).value;
+        if (actionValue==="cancelCase")
+        {
+            $("#cancelCase_box").modal('show');
+        }
+        else if(actionValue==="assignCase")
+        {
+            $.ajax({
+                url: "https://localhost:7025/Action/GetRegion",
+                success: function (response) {
+                    var options = response.regionlist.map(function(option){
+                        return "<option value="+option.regionId+">"+option.name+"</option>"
+                    })
+                    options.push("<option selected disabled>Search by Region</option>");
+                    $("#Regionlist").html( options);
+                },
+                error: function () {
+                    alert("error");
+                }
+            })
+            $("#assignCase_box").modal('show');
+        }
+        else if(actionValue==="blockCase")
+        {
+            $("#blockCase_box").modal('show');
+        }
+        else{
+            window.location.href = '/Action/' + actionValue + '?requestId=' + modelData[index].id;
+        } 
     }
+    function showPhysicianByRegion()
+    {
+        $.ajax({
+            url: "https://localhost:7025/Action/GetPhysicianByRegion",
+            type:'post',
+            data:{
+                regionId: $("#Regionlist").val()
+            },
+            success: function (response) {
+                var options = response.physicianlist.map(function (option) {
+                    return "<option value=" + option.physicianId + ">" + option.firstName + "</option>"
+                })
+                options.push("<option selected disabled>Search Physician</option>");
+                $("#Physicianlist").html(options);
+            },
+            error: function () {
+                alert("error");
+            }
+        })
+    }
+    function reload() { location.reload(); }
 </script>
    
 

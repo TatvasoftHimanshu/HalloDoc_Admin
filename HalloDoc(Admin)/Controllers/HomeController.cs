@@ -83,14 +83,14 @@ namespace HalloDoc_Admin_.Controllers
 
         public IActionResult UnpaidStatus()
         {
-            List<DashboardAdminData>? list = _db.GetDataByStatus(new List<int> { 3,7,8});
+            List<DashboardAdminData>? list = _db.GetDataByStatus(new List<int> { 9});
             TempData["status"] = "Unpaid";
             return PartialView(list);
         }
 
         public IActionResult ToCloseStatus()
         {
-            List<DashboardAdminData>? list = _db.GetDataByStatus(new List<int> {9});
+            List<DashboardAdminData>? list = _db.GetDataByStatus(new List<int> { 3, 7, 8 });
             return PartialView(list);
         }
 
@@ -143,7 +143,11 @@ namespace HalloDoc_Admin_.Controllers
                 throw;
             }
         }
-
+        public IActionResult sendLink(IFormCollection form)
+        {
+            _db.SendMail(form["FirstName"] + " " + form["LastName"], "For New User", form["Email"]);
+            return RedirectToAction("Index");
+        }
         public IActionResult Privacy()
         {
             return View();

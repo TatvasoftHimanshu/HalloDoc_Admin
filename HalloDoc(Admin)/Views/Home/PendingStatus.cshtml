@@ -66,12 +66,15 @@
 <script>
 
     var modelData = @Html.Raw(Json.Serialize(Model));
-    console.log(modelData);
     function openAction(index) {
-        console.log();
-
-        window.location.href = '/Action/' + document.getElementById("Action_" + modelData[index].id).value + '?requestId=' + modelData[index].id;
-
+        var actionValue = document.getElementById("Action_" + modelData[index].id).value;
+        if (actionValue === "cancelCase") {
+            $("#cancelCase_box").modal('show');
+        }
+        else {
+            window.location.href = '/Action/' + actionValue + '?requestId=' + modelData[index].id;
+        }
     }
+    function reload() { location.reload(); }
 </script>
 

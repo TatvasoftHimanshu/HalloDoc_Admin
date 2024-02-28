@@ -12,6 +12,8 @@ namespace HalloDoc_Admin_.Entities.ViewModel
         public List<string> TransferNote { get; set; }=new List<string>();
         public string? physicianNote { get; set; }
         public string? adminNote { get; set; }
+        public string? cancelNote { get; set; }
+        public string? patientCancelNote { get;set; }
 
     }
 }
