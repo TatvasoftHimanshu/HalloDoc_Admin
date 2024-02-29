@@ -1,6 +1,7 @@
 ﻿using HalloDoc_Admin_.Entities.Data;
 using HalloDoc_Admin_.Repositories.Interface;
 using HalloDoc_Admin_.Entities.ViewModel;
+using HalloDoc_Admin_.Entities.Enum;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Globalization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Net.Mail;
 using System.Net;
+using ERequestType = HalloDoc_Admin_.Entities.Enum.ERequestType;
 
 namespace HalloDoc_Admin_.Repositories
 {
@@ -47,7 +49,7 @@ namespace HalloDoc_Admin_.Repositories
                         select new DashboardAdminData
                         {
                             Id = request.RequestId,
-                            RequestType = request.RequestTypeId,
+                            Requesttype = request.RequestTypeId,
                             RequestStatus = request.Status,
                             RequestorName = request.FirstName + " " + request.LastName,
                             DOB = result != null ? @$"{result.IntDate}/{result.StrMonth}/{result.IntYear}" : "",
@@ -79,7 +81,7 @@ namespace HalloDoc_Admin_.Repositories
                        select new DashboardAdminData
                        {
                            Id=request.RequestId,
-                           RequestType=request.RequestTypeId,
+                           Requesttype=request.RequestTypeId,
                            RequestStatus=request.Status,
                            RequestorName=request.FirstName+" "+request.LastName,
                            DOB= result!=null?@$"{result.IntDate}/{result.StrMonth}/{result.IntYear}":"",
@@ -89,13 +91,16 @@ namespace HalloDoc_Admin_.Repositories
                            Email= result!=null && result.Email!=null?result.Email:"",
                            PatientPhone=result != null ? result.PhoneNumber : "",
                            RequestorPhone=request.PhoneNumber,
-                           Address=result!=null?result.Address:"",
+                           Address=result.Address==null?result.Street+", "+result.City+", "+result.State+"-"+result.ZipCode:result.Address,
                            Notes= result != null ? result.Notes : "",
                            PhysicianId=result1!=null?result1.PhysicianId:0,
                            PhysicianName=result1.FirstName+" "+result1.LastName,
 
                        }).ToList();
-
+            foreach(var dt in data)
+            {
+                dt.userType = (ERequestType)Enum.Parse(typeof(ERequestType), dt.Requesttype.ToString());
+            }
             return data;
         }
 

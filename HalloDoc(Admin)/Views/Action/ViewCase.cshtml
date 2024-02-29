@@ -6,20 +6,9 @@
 <div class="text-end my-3 d-flex flex-row justify-content-between container">
     <div class="d-flex d-flex align-items-center">
         <h2> 
-            @if(Model.requestType==1)
-            {
                 <span>New Request</span>
-            }
-            else
-            {
-                <span>View Reservation</span>
-            }
-        </h2>
-       
-            @if(Model.requestType==1)
-            {
-            <div style="background-color:#60bc60;color:white; border-radius:25px;height:40px" class="text-center p-2">Patient</div>
-            }
+        </h2>  
+            <div style="color:white; border-radius:25px;height:40px" class="text-center p-2 requestColor_@Model.requestType">@Model.userType</div>
        
     </div>
     <a class="btn_dash p-1" asp-controller="Home" asp-action="Index">

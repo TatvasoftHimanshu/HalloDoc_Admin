@@ -118,7 +118,7 @@ namespace HalloDoc_Admin_.Controllers
                 foreach(var item in allData)
                 {
                     datasheet.Cell(row, 1).Value = item.Id;
-                    datasheet.Cell(row, 2).Value = item.RequestType;
+                    datasheet.Cell(row, 2).Value = item.Requesttype;
                     datasheet.Cell(row, 3).Value = item.RequestStatus;
                     datasheet.Cell(row, 4).Value = item.RequestorName;
                     datasheet.Cell(row, 5).Value = item.DOB;

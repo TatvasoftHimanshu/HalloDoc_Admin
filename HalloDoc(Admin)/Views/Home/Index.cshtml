@@ -75,14 +75,14 @@
             </button>
         </form>
 
-        <div class="d-flex flex-row justify-content-between align-items-center py-3 flex-wrap">
+        <div class="d-flex flex-row justify-content-between align-items-center py-3">
             <div class="d-flex flex-row align-items-end">
                 <h2>Patients</h2>
             <h4 style="color:#172C93">(<span id="StatusName"></span>)</h4>
             </div>
             <div class="d-flex flex-row">
 
-                <button type="button" class="btn_admin py-2 px-3 m-1 d-block border-0" data-bs-toggle="modal" data-bs-target="#sendLink_box"><img src="~/images/send.svg"/> Send Link</button>
+            <button type="button" class="btn_admin py-2 px-2 m-1 d-block border-0" data-bs-toggle="modal" data-bs-target="#sendLink_box"><img src="~/images/send.svg" /> <span class="responsivehide">Send Link</span></button>
             <div class="modal fade text-center " id="sendLink_box">
                     <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content border-0">
@@ -124,21 +124,21 @@
                     </div>
                 </div>
 
-            <a  class="btn_admin py-2 px-3 m-1 d-block" asp-controller="" asp-action=""><img src="/images/icons/request-quote-svgrepo-com.svg" style="width:20px;" class="border-0"/> Create Requests</a>
-            <a  class="btn_admin py-2 px-3 m-1 d-block" asp-controller="Home" asp-action="ExportDataByStatus"><img src="~/images/icons/right-arrow-outline-svgrepo-com.svg" style="width:20px;" /> Export</a>
-            <a  class="btn_admin py-2 px-3 m-1 d-block" asp-controller="Home" asp-action="ExportAllData"><img src="/images/icons/export.svg" style="width:20px;" /> Exort All</a>
-            <a  class="btn_admin py-2 px-3 m-1 d-block"><img src="/images/icons/person-svgrepo-com.svg" style="width:20px;" /> Request DIY Support</a>
+            <a class="btn_admin py-2 px-2 m-1 d-block" asp-controller="" asp-action=""><img src="/images/icons/request-quote-svgrepo-com.svg" style="width:20px;" class="border-0" /> <span class="responsivehide">Create Requests</span></a>
+            <a class="btn_admin py-2 px-2 m-1 d-block" asp-controller="Home" asp-action="ExportDataByStatus"><img src="~/images/icons/right-arrow-outline-svgrepo-com.svg" style="width:20px;" />  <span class="responsivehide">Export</span></a>
+            <a class="btn_admin py-2 px-2 m-1 d-block" asp-controller="Home" asp-action="ExportAllData"><img src="/images/icons/export.svg" style="width:20px;" />  <span class="responsivehide">Exort All</span></a>
+            <a class="btn_admin py-2 px-2 m-1 d-block"><img src="/images/icons/person-svgrepo-com.svg" style="width:20px;" />  <span class="responsivehide">Request DIY Support</span></a>
             </div>
         </div>
         <div class="bg-white" style="border-radius: 10px;">
 
             <div class="d-flex flex-row justify-content-between row align-items-center py-5 px-3">
-                <div class="d-flex flex-row col-xxl-4">
-                <div class="mx-3" >
+                <div class="row col-lg-6 col-xl-4">
+                    <div class="col-sm-6" >
                         <input type="search" placeholder="Search Patients" class="form-control px-4">
                         <i class="bi bi-search"></i>
                     </div>
-                    <div>
+                    <div class="col-sm-6">
                         <select class="form-control px-4">
                             <option value="" selected disabled>All Regions</option>
                             <option value="">Jamnagar</option>
@@ -148,7 +148,7 @@
                         <i class="bi bi-search icon_input"></i>
                     </div>
                 </div>
-                <div class="d-flex flex-row justify-content-between col-xxl-5">
+                <div class="d-flex flex-row justify-content-between col-xl-5">
                     <button type="button" class="btn-light btn">All</button>
                     <div class="p-1">
                         <div style="width:10px;height: 10px; border-radius: 50%; background-color: #61ad63;"
@@ -210,7 +210,7 @@
                 statusTag.innerText = "Coclude";
                 break;
             case 4:
-                statusTag.innerText = "To Close";
+                statusTag.innerText = "Close";
                 break;
             case 5:
                 statusTag.innerText = "Unpaid";

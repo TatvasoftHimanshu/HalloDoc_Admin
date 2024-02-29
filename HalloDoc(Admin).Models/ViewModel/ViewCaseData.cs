@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HalloDoc_Admin_.Entities.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace HalloDoc_Admin_.Entities.ViewModel
     {
         public int RequestId { get; set; }
         public int requestType { get; set; }
+        public ERequestType userType { get; set; }
         public string ConFirmationNumber { get; set; }
         public string Symptoms { get; set; }
         public string FirstName { get; set; }

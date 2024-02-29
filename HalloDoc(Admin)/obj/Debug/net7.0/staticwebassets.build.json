@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XydNgVJd2S9Xssc3N75mKjdNYejAyKBXNqVuqpjgLu4=",
+  "Hash": "1ibHFzcfU+ysDnbefBC2/dQhyzy91tjUT4zTK5+z9mc=",
   "Source": "HalloDoc(Admin)",
   "BasePath": "_content/HalloDoc(Admin)",
   "Mode": "Default",
@@ -272,6 +272,23 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\conclude.svg"
     },
     {
+      "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\Dashboard_mobile_to-close_2.svg",
+      "SourceId": "HalloDoc(Admin)",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\",
+      "BasePath": "_content/HalloDoc(Admin)",
+      "RelativePath": "images/icons/Dashboard_mobile_to-close_2.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icons\\Dashboard_mobile_to-close_2.svg"
+    },
+    {
       "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\doctor-svgrepo-com.svg",
       "SourceId": "HalloDoc(Admin)",
       "SourceType": "Discovered",
@@ -287,6 +304,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\icons\\doctor-svgrepo-com.svg"
+    },
+    {
+      "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\document.svg",
+      "SourceId": "HalloDoc(Admin)",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\",
+      "BasePath": "_content/HalloDoc(Admin)",
+      "RelativePath": "images/icons/document.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icons\\document.svg"
     },
     {
       "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\export.svg",
@@ -306,6 +340,40 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\export.svg"
     },
     {
+      "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\file.svg",
+      "SourceId": "HalloDoc(Admin)",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\",
+      "BasePath": "_content/HalloDoc(Admin)",
+      "RelativePath": "images/icons/file.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icons\\file.svg"
+    },
+    {
+      "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\google-docs.svg",
+      "SourceId": "HalloDoc(Admin)",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\",
+      "BasePath": "_content/HalloDoc(Admin)",
+      "RelativePath": "images/icons/google-docs.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icons\\google-docs.svg"
+    },
+    {
       "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\new.svg",
       "SourceId": "HalloDoc(Admin)",
       "SourceType": "Discovered",
@@ -321,6 +389,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\icons\\new.svg"
+    },
+    {
+      "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\paper.svg",
+      "SourceId": "HalloDoc(Admin)",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\",
+      "BasePath": "_content/HalloDoc(Admin)",
+      "RelativePath": "images/icons/paper.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icons\\paper.svg"
     },
     {
       "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\pending.svg",
@@ -440,6 +525,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\icons\\unpaid.svg"
+    },
+    {
+      "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\upload.svg",
+      "SourceId": "HalloDoc(Admin)",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\",
+      "BasePath": "_content/HalloDoc(Admin)",
+      "RelativePath": "images/icons/upload.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icons\\upload.svg"
     },
     {
       "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\send.svg",

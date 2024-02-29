@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HalloDoc_Admin_.Entities.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,8 @@ namespace HalloDoc_Admin_.Entities.ViewModel
     {
         public DashboardAdminData() { }
         public int Id { get; set; }
-        public int RequestType { get; set; }
+        public int Requesttype { get; set; }
+        public ERequestType userType { get; set; }
         public int RequestStatus { get; set; }
         public string PatientName { get; set; } = null!;
         public string RequestorName { get; set; } = null!;

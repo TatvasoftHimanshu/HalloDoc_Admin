@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\images\\check2-circle.svg"
     },
     {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\Dashboard_mobile_to-close_2.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\Dashboard_mobile_to-close_2.svg"
+    },
+    {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\active.svg",
       "PackagePath": "staticwebassets\\images\\icons\\active.svg"
     },
@@ -61,12 +65,28 @@
       "PackagePath": "staticwebassets\\images\\icons\\doctor-svgrepo-com.svg"
     },
     {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\document.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\document.svg"
+    },
+    {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\export.svg",
       "PackagePath": "staticwebassets\\images\\icons\\export.svg"
     },
     {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\file.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\file.svg"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\google-docs.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\google-docs.svg"
+    },
+    {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\new.svg",
       "PackagePath": "staticwebassets\\images\\icons\\new.svg"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\paper.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\paper.svg"
     },
     {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\pending.svg",
@@ -95,6 +115,10 @@
     {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\unpaid.svg",
       "PackagePath": "staticwebassets\\images\\icons\\unpaid.svg"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\upload.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\upload.svg"
     },
     {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\send.svg",
