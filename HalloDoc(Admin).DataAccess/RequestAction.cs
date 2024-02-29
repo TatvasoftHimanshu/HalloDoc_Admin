@@ -1,4 +1,5 @@
 ﻿using HalloDoc_Admin_.Entities.Data;
+using HalloDoc_Admin_.Entities.Enum;
 using HalloDoc_Admin_.Entities.Models;
 using HalloDoc_Admin_.Entities.ViewModel;
 using HalloDoc_Admin_.Repositories.Interface;
@@ -135,6 +136,7 @@ namespace HalloDoc_Admin_.Repositories
                                       {
                                           RequestId = requestClient.RequestId,
                                           ConFirmationNumber = _context.Requests.FirstOrDefault(x => x.RequestId == requestId).ConfirmationNumber,
+                                          requestType= requestClient.Request.RequestTypeId,
                                           Symptoms = requestClient.Notes ?? "",
                                           FirstName = requestClient.FirstName,
                                           LastName = requestClient.LastName,
@@ -143,10 +145,9 @@ namespace HalloDoc_Admin_.Repositories
                                           Email = requestClient.Email,
                                           Phone = requestClient.PhoneNumber,
                                           Region = result != null ? result.Name : "",
-                                          BusinessName = result2 != null ? result2.Name : requestClient.Street + requestClient.City + requestClient.State,
-                                          requestType = _context.Requests.FirstOrDefault(x => x.RequestId == requestId).RequestTypeId
+                                          BusinessName = result2 != null ? result2.Name : requestClient.Street + requestClient.City + requestClient.State
                                       }).SingleOrDefault(x => x.RequestId == requestId);
-
+            viewCase.userType = (ERequestType)Enum.Parse(typeof(ERequestType), viewCase.requestType.ToString());
             return viewCase ?? new ViewCaseData();
         }
 

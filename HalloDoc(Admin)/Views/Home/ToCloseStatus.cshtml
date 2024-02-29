@@ -2,7 +2,7 @@
 @{
 
 }
-<table class="table  bg-light" id="adminTable">
+<table class="table  bg-light dashboardTable" id="adminTable">
     <thead>
     <th>Name</th>
     <th class="text-center">Date of Birth</th>
@@ -19,7 +19,7 @@
         {
             @foreach (var (res,i) in Model.Select((res,i)=>(res,i)))
             {
-                <tr class="text-white requestColor_@res.RequestType" >
+                <tr class="text-white requestColor_@res.Requesttype" >
 
                     <td>@res.PatientName</td>
                     <td>
@@ -55,7 +55,57 @@
         }
     </tbody>
 </table>
+<div class="accordion" id="accordionExample" style="color:black">
+    @if (Model != null)
+    {
+        @foreach (var (item, i) in Model.Select((res, i) => (res, i)))
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
 
+                    <button class="accordion-button d-flex flex-column" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_@item.Id" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="d-flex flex-row justify-content-between w-100 mb-2">
+                            <div>
+                                @item.PatientName
+                            </div>
+                            <div>
+                                <div style="width:10px;height: 10px; border-radius: 50%; "
+                                     class="d-inline-block requestColor_@item.Requesttype"></div> @item.userType
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between w-100 mb-2">
+                            <div>@item.Address</div>
+                            <a class="btn_dash p-1 text-center" style="border-radius:20px;font-size:15px">Map location</a>
+                        </div>
+                    </button>
+                </h2>
+                <div id="collapseOne_@item.Id" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body d-flex flex-column justify-content-between">
+                        <div class="mb-1"><i class="bi bi-calendar" style="font-size:13px;color:#00b3fa"> </i> Date of birth : <strong>@item.DOB</strong></div>
+                        <div class="mb-2"><i class="bi bi-envelope" style="font-size:13px;color:#00b3fa"> </i>  Email : <strong>@item.Email</strong></div>
+                        <div class="mb-2"><i class="bi bi-person-bounding-box" style="font-size:13px;color:#00b3fa"> </i>  Transfer Notes : <strong></strong></div>
+                        <div class="mb-2"><i class="bi bi-person-bounding-box" style="font-size:13px;color:#00b3fa"> </i>  Date of service : <strong>@item.DataofService</strong></div>
+                        <div class="mb-2"><i class="bi bi-person-bounding-box" style="font-size:13px;color:#00b3fa"> </i>  Physician : <strong>@item.PhysicianName</strong></div>
+                        <div class="mb-2"><i class="bi bi-person-bounding-box" style="font-size:13px;color:#00b3fa"> </i>  Region : <strong>@item.Region</strong></div>
+                        <div class="d-flex flex-wrap mb-2">
+                            <a>Close Case</a>
+                            <a>View Notes</a>
+                            <a>Doctors Note</a>
+                            <a>View Uploads</a>
+                            <a>Encounter</a>
+                            <a>Clear Case</a>
+                            <a href="mailto:@item.Email">Email</a>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            Chat With:<button class="btn_dash mx-2">Patient</button>
+                            <button class="btn_dash mx-2">Provider</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
 <script>
 
     var modelData = @Html.Raw(Json.Serialize(Model));

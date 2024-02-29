@@ -16,13 +16,30 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+a {
+    text-decoration: none;
+    color:black;
+}
 body {
     margin: 0px;
     margin-bottom: 60px;
     padding: 0px;
     box-sizing: border-box;
     background-color: rgb(240, 240, 240);
+}
+.btn_accord{
+    width:120px;
+    border-radius:20px;
+    color:white;
+}
+.btn_accordP {
+    background-color: #943db8;
+}
+.btn_accordR{
+    background-color: #e42929;
+}
+.btn_accordG {
+    background-color: #228b22;
 }
 
 .nav-tabs .nav-item .nav-link {
@@ -100,7 +117,7 @@ a {
 }
 .bi-search{
     position:relative;
-    top:-30px;
+    top:-32px;
     left:5px;
 }
 .btn_dashtable{
@@ -175,4 +192,36 @@ a {
 ,modal-content{
     border-radius:5px;
     border:none;
+}
+
+.accordion-button::after {
+    display:none;
+    background-image:none;
+}
+
+@media only screen and (max-width:700px) {
+    .dashboardTable, .responsivehide {
+        display: none;
+    }
+    .accordion-button, .accordion-body, .accordion-button:not(.collapsed) {
+        color: black;
+        background-color: #ebfafd !important;
+    }
+    #accordionExample, .responsiveshow {
+        display: block;
+    }
+
+    .btn_showdoc, .accordion-button, .accordion-body {
+        background-color: #bbeef7;
+    }
+}
+
+@media only screen and (min-width:700px) {
+    #accordionExample, .responsiveshow {
+        display: none;
+    }
+
+    .med_history {
+        padding: 3rem;
+    }
 }
