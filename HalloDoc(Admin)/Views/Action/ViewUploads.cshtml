@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mt-2">
+        <h2>Documents</h2>
+        <a class="btn_dash p-1 px-2 btn">Back</a>
+    </div>
+    <div class="container bg-white ">
+        <div class="m-2 pt-2">
+            <div class="">
+                <h6>Patient Name</h6>
+                <h2 class="d-inline-block">bdfsbvxnvxcv</h2>
+                <h3 class="d-inline">()</h3>
+            </div>
+            <p>Check here to review and cold fles that you or the Clienti Member has attached to the Request.</p>
+            <form class="d-flex mb-5" method="post" asp-controller="Home" asp-action="UploadDoc"
+                  enctype="multipart/form-data">
+                <input class="form-control" name="formFile" type="file">
+                <button type="submit" class="btn btn-info" style="color: white;">Upload</button>
+            </form>
+            <div class="d-flex justify-content-between">
+                <h4>Documents</h4>
+                <div>
+                    <button class="btn_dash btn mx-1">Download All</button>
+                    <button class="btn_dash btn mx-1">Delete All</button>
+                    <button class="btn_dash btn mx-1">Send Mail</button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-responsive">
+            <thead class="bg-light ">
+            <th><input type="checkbox" class="form-control-lg" onclick="selectAll()" id="selectAllRd"></th>
+            <th></th>
+            <th>Uploader</th>
+            <th>Upload Date</th>
+            <th>Action</th>
+            </thead>
+            @*@foreach (var file in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" class="form-control-lg rd" onclick="selectBox()"></td>
+                    <td>@file.fileName.Substring(9)</td>
+                    <td>@file.uploader_name</td>
+                    <td>@file.CreatedDate</td>
+                    <td>
+                        <a href="@file.fileName" download class="download-link btn_dash"><img src="~/images/icons/cloud-download.svg" /></a>
+                        <a href="@file.fileName" download class="download-link btn_dash"><img src="~/images/icons/cloud-download.svg" /></a>
+                    </td>
+                </tr>
+            }*@
+        </table>
+    </div>
+</div>

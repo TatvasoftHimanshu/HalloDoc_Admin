@@ -4,7 +4,7 @@
     
 }
 
-<table class="table  bg-light dashboardTable">
+<table class="table table-responsive  bg-light dashboardTable">
         <thead>
         <th>Name</th>
         <th class="text-center">Date of Birth</th>
@@ -15,7 +15,7 @@
         <th>Notes</th>
         <th>Chat with</th>
         <th>Actions</th>
-        </thead>
+        <thead>
         <tbody>
             @if (Model != null)
             {
@@ -63,112 +63,13 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="modal fade text-center " id="cancelCase_box">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content border-0">
-                                    <div class="modal-header">
-                                        <h6 class="modal-title">Confirm Cancellation</h6>
-                                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body" style="color:black;text-align:start">
-                                        <form asp-route-requestId="@res.Id" class="px-3" method="post" asp-controller="Action" asp-action="cancelCase">
-                                            <div class="row mb-3">
-                                                <span class="mb-3 p-0">Patient name : <span style="color:#18b6d1">@res.PatientName</span></span>
-                                                <select class="form-control p-2" style="padding:0px;" name="reason" required>
-                                                    <option selected disabled>Reasons for Cancellation</option>
-                                                    <option value="">Assign Case</option>
-                                                    <option value="">Cancel Case</option>
-                                                    <option value="">View Case</option>
-                                                    <option value="">View Notes</option>
-                                                    <option value="">Block Patient</option>
-                                                </select>
-                                                <div class="group mb-1 px-0 col-12">
-                                                    <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Notes"></textarea>
-                                                    <label for="" class="placeholder">Provide Additional Notes</label>
-                                                    <span @*asp-validation-for=""*@ class="text-danger"></span>
-                                                </div>
-                                            </div>
-                                            <div class="text-end">
-                                                <button type="submit" class="btn btn_admin selected" id="" onclick="">Confirm</button>
-                                                <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="modal fade text-center " id="assignCase_box">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content border-0">
-                                    <div class="modal-header">
-                                        <h6 class="modal-title">Assign Request</h6>
-                                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body" style="color:black;text-align:start">
-                                        <form asp-route-requestId="@res.Id" class="px-3" method="post" asp-controller="Action" asp-action="assignCase">
-                                            <div class="row mb-3">
-                                                <span class="mb-3 p-0">To assign this request,search and select another Physician</span>
-                                                <select class="form-control p-2 mb-3" style="padding:0px;" name="region" id="Regionlist" required onchange="showPhysicianByRegion()">
-                                                    <option selected disabled>Search by Region</option>
-                                                </select>
-                                                <select class="form-control p-2" style="padding:0px;" name="Physician" required  id="Physicianlist">
-                                                    <option selected disabled>Select Physician</option>
-                                                </select>
-                                                <div class="group mb-1 px-0 col-12">
-                                                    <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Description"></textarea>
-                                                    <label for="" class="placeholder">Description</label>
-                                                    <span @*asp-validation-for=""*@ class="text-danger"></span>
-                                                </div>
-                                            </div>
-                                            <div class="text-end">
-                                                <button type="submit" class="btn btn_admin selected" id="" onclick="">Submit</button>
-                                                <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal fade text-center " id="blockCase_box">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content border-0">
-                                    <div class="modal-header">
-                                        <h6 class="modal-title">Confirm Block</h6>
-                                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body" style="color:black;text-align:start">
-                                        <form asp-route-requestId="@res.Id" class="px-3" method="post" asp-controller="Action" asp-action="blockCase">
-                                            <div class="row mb-3">
-                                                <span class="mb-3 p-0">Patient name : <span style="color:#18b6d1">@res.PatientName</span></span>
-                                                <div class="group mb-1 px-0 col-12">
-                                                    <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Reason"></textarea>
-                                                    <label for="" class="placeholder">Reason for Block Request</label>
-                                                    <span @*asp-validation-for=""*@ class="text-danger"></span>
-                                                </div>
-                                            </div>
-                                            <div class="text-end">
-                                                <button type="submit" class="btn btn_admin selected">Confirm</button>
-                                                <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         </td>
                     </tr>
-                }
-            }
-        </tbody>
-    </table>
+                
 <div class="accordion" id="accordionExample" style="color:black">
     @if (Model != null)
     {
-        @foreach (var (item, i) in Model.Select((res, i) => (res, i)))
+        @foreach (var item in Model)
         {
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
@@ -193,7 +94,7 @@
                     </button>
                 </h2>
                 <div id="collapseOne_@item.Id" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body d-flex flex-column justify-content-between">
+                    <div class="accordion-body d-flex flex-column justify-content-between position-relative">
                         <div class="mb-1"><i class="bi bi-calendar" style="font-size:13px;color:#00b3fa"> </i> Date of birth : <strong>@item.DOB</strong></div>
                         <div class="mb-2"><i class="bi bi-envelope" style="font-size:13px;color:#00b3fa"> </i>  Email : <strong>@item.Email</strong></div>
                         <div class="mb-2"><i class="bi bi-telephone" style="font-size:13px;color:#00b3fa"> </i>  Patient : <strong>@item.PatientPhone</strong></div>
@@ -204,14 +105,114 @@
                             <a class="btn btn_accordG btn_accord m-1" asp-controller="Action" asp-action="ViewNotes" asp-route-requestId="@item.Id">View Notes</a>
                             <button class="btn btn_accordR btn_accord m-1" data-bs-target="#blockCase_box" data-bs-toggle="modal">Block Patient</button>
                             <a href="mailto:@item.Email" class="btn btn_accordG btn_accord m-1">Email</a>
-                            <a class="btn btn_accordG btn_accord m-1" asp-controller="Action" asp-action="ViewCase" asp-route-requestId="@item.Id">View Case</a>
                         </div> 
+                        <a class="btn  btn_accordCase p-0 px-1" asp-controller="Action" asp-action="ViewCase" asp-route-requestId="@item.Id">View Case</a>
                     </div>
                 </div>
             </div>
         }
     }
 </div>
+<div class="modal fade text-center" id="cancelCase_box">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h6 class="modal-title">Confirm Cancellation</h6>
+                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="color:black;text-align:start">
+                <form asp-route-requestId="@res.Id" class="px-3" method="post" asp-controller="Action" asp-action="cancelCase">
+                    <div class="row mb-3">
+                        <span class="mb-3 p-0">Patient name : <span style="color:#18b6d1">@res.PatientName</span></span>
+                        <select class="form-control p-2" style="padding:0px;" name="reason" required>
+                            <option selected disabled>Reasons for Cancellation</option>
+                            <option value="">Assign Case</option>
+                            <option value="">Cancel Case</option>
+                            <option value="">View Case</option>
+                            <option value="">View Notes</option>
+                            <option value="">Block Patient</option>
+                        </select>
+                        <div class="group mb-1 px-0 col-12">
+                            <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Notes"></textarea>
+                            <label for="" class="placeholder">Provide Additional Notes</label>
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn_admin selected" id="" onclick="">Confirm</button>
+                        <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade text-center " id="assignCase_box">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h6 class="modal-title">Assign Request</h6>
+                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="color:black;text-align:start">
+                <form asp-route-requestId="@res.Id" class="px-3" method="post" asp-controller="Action" asp-action="assignCase">
+                    <div class="row mb-3">
+                        <span class="mb-3 p-0">To assign this request,search and select another Physician</span>
+                        <select class="form-control p-2 mb-3" style="padding:0px;" name="region" id="Regionlist" required onchange="showPhysicianByRegion()">
+                            <option selected disabled>Search by Region</option>
+                        </select>
+                        <select class="form-control p-2" style="padding:0px;" name="Physician" required id="Physicianlist">
+                            <option selected disabled>Select Physician</option>
+                        </select>
+                        <div class="group mb-1 px-0 col-12">
+                            <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Description"></textarea>
+                            <label for="" class="placeholder">Description</label>
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn_admin selected" id="" onclick="">Submit</button>
+                        <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade text-center " id="blockCase_box">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h6 class="modal-title">Confirm Block</h6>
+                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="color:black;text-align:start">
+                <form asp-route-requestId="@res.Id" class="px-3" method="post" asp-controller="Action" asp-action="blockCase">
+                    <div class="row mb-3">
+                        <span class="mb-3 p-0">Patient name : <span style="color:#18b6d1">@res.PatientName</span></span>
+                        <div class="group mb-1 px-0 col-12">
+                            <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Reason"></textarea>
+                            <label for="" class="placeholder">Reason for Block Request</label>
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn_admin selected">Confirm</button>
+                        <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+            }
+        }
+    </tbody>
+</table>
 <script>
     
     document.addEventListener('click',function(event){

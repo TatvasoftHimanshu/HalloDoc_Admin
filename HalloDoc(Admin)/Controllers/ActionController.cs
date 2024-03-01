@@ -35,6 +35,12 @@ namespace HalloDoc_Admin_.Controllers
             _action.updateNote(Notes,noteType,id);
             return RedirectToAction("viewNotes", new {requestId=id});
         }
+
+        public IActionResult ViewUploads(int requestId) 
+        {
+            return View();
+        }
+
         public IActionResult cancelCase(IFormCollection form,int requestId)
         {
             _action.cancelCase(form["reason"], form["Notes"], requestId);

@@ -48,16 +48,23 @@
                         </div>
                     </td>
                     <td>
-                        <select class="form-control btn_dashtable w-50 text-center" value="Action" style="padding:0px;" onchange="openAction(@i)" id="Action_@res.Id">
-                            <option selected disabled class="text-center">Action</option>
-                            <option value="viewCase">View Case</option>
-                            <option value="viewUploads">View Uploads</option>
-                            <option value="viewNotes">View Notes</option>
-                            <option value="Orders">Orders</option>
-                            <option value="docNote">Doctor Note</option>
-                            <option value="Encounter">Encounter</option>
-                        </select>
-
+                        <div>
+                            <button class=" btn_dashtable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAction_@res.Id" aria-expanded="false" aria-controls="collapseWidthExample">
+                                Action
+                            </button>
+                            <div class="position-absolute" style="">
+                                <div class="collapse collapse-horizontal actioncollapse" id="collapseAction_@res.Id">
+                                    <div class="bg-white text-center d-flex flex-column" style="border-radius:5px;">
+                                        <div><a asp-controller="Action" asp-action="ViewCase" asp-route-requestId="@res.Id">View&nbspCase</a></div>
+                                        <div><a asp-controller="Action" asp-action="ViewUploads" asp-route-requestId="@res.Id">View&nbspUploads</a></div>
+                                        <div><a asp-controller="Action" asp-action="ViewNotes" asp-route-requestId="@res.Id">View&nbspNotes</a></div>
+                                        <div><a asp-controller="Action" asp-action="Orders" asp-route-requestId="@res.Id">Orders</a></div>
+                                        <button data-bs-target="#cancelCase_box" data-bs-toggle="modal" class="border-0 bg-transparent">Doctor&nbspNote</button>
+                                        <button data-bs-target="#blockCase_box" data-bs-toggle="modal" class="border-0 bg-transparent">Encounter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             }
@@ -89,7 +96,7 @@
                     </button>
                 </h2>
                 <div id="collapseOne_@item.Id" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body d-flex flex-column justify-content-between">
+                    <div class="accordion-body d-flex flex-column justify-content-between position-relative">
                         <div class="mb-1"><i class="bi bi-calendar" style="font-size:13px;color:#00b3fa"> </i> Date of birth : <strong>@item.DOB</strong></div>
                         <div class="mb-2"><i class="bi bi-envelope" style="font-size:13px;color:#00b3fa"> </i>  Email : <strong>@item.Email</strong></div>
                         <div class="mb-2"><i class="bi bi-telephone" style="font-size:13px;color:#00b3fa"> </i>  Patient : <strong>@item.PatientPhone</strong></div>
@@ -97,16 +104,16 @@
                         <div class="mb-2"><i class="bi bi-person-bounding-box" style="font-size:13px;color:#00b3fa"> </i>  Date of service : <strong>@item.DataofService</strong></div>
                         <div class="mb-2"><i class="bi bi-person-bounding-box" style="font-size:13px;color:#00b3fa"> </i>  Physician : <strong>@item.PhysicianName</strong></div>
                         <div class="mb-2"><i class="bi bi-person-bounding-box" style="font-size:13px;color:#00b3fa"> </i>  Requestor : <strong>@item.RequestorName</strong></div>
-                        <div class="d-flex flex-wrap mb-2">
-
-                            <a>View Notes</a>
-                            <a>Doctors Note</a>
-                            <a>View Uploads</a>
-                            <a>Encounter</a>
-                            <a>Orders</a>
-                            <a href="mailto:@item.Email">Email</a>
+                        <div class="d-flex flex-wrap">
+                            <a class="btn btn_accordG btn_accord m-1" asp-controller="Action" asp-action="ViewNotes" asp-route-requestId="@item.Id">View Notes</a>
+                            <button class="btn m-1 btn_accord" style="background-color:#145545" data-bs-target="#assignCase_box" data-bs-toggle="modal">Doctors Note</button>
+                            <a class="btn btn_accordG btn_accord m-1" asp-controller="Action" asp-action="ViewCase" asp-route-requestId="@item.Id">View Uploads</a>
+                            <button class="btn btn_accordG btn_accord m-1" data-bs-target="#blockCase_box" data-bs-toggle="modal">Encounter</button>
+                            <a class="btn btn_accordY btn_accord m-1" asp-controller="Action" asp-action="ViewCase" asp-route-requestId="@item.Id">Orders</a>
+                            <a href="mailto:@item.Email" class="btn btn_accordG btn_accord m-1">Email</a>
                         </div>
-                            <div class="d-flex justify-content-end">
+                        <a class="btn position-absolute btn_accordCase p-0 px-1" asp-controller="Action" asp-action="ViewCase" asp-route-requestId="@item.Id">View Case</a>
+                        <div class="d-flex justify-content-end">
                                 Chat With:<button class="btn_dash mx-2">Patient</button>
                                 <button class="btn_dash mx-2">Provider</button>
                             </div>
