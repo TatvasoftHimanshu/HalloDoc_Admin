@@ -1,0 +1,34 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="modal fade text-center " id="assignCase_box">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h6 class="modal-title">Assign Request</h6>
+                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="color:black;text-align:start">
+                <form class="px-3" method="post" asp-controller="Action" asp-action="assignCase">
+                    <input type="hidden" name="requestId" id="requestId" value="" />
+                    <div class="row mb-3">
+                        <span class="mb-3 p-0">To assign this request,search and select another Physician</span>
+                        <select class="form-control p-2 mb-3" style="padding:0px;" name="region" id="Regionlist" required onchange="showPhysicianByRegion()" onclick="getRegionlist()">
+                            <option selected disabled>Search by Region</option>
+                        </select>
+                        <select class="form-control p-2" style="padding:0px;" name="Physician" required id="Physicianlist">
+                            <option selected disabled>Select Physician</option>
+                        </select>
+                        <div class="group mb-1 px-0 col-12">
+                            <textarea required class="form-control input-field pt-3 w-100" rows="5" placeholder="" @*asp-for=""*@ name="Description"></textarea>
+                            <label for="" class="placeholder">Description</label>
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn_admin selected" >Submit</button>
+                        <button type="button" class="btn btn_dash" data-bs-dismiss="modal" onclick="reload()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

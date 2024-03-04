@@ -7,7 +7,11 @@ D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\Npgsql.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\HalloDoc(Admin).Entities.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\HalloDoc(Admin).Repositories.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\ClosedXML.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\ExcelNumberFormat.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\Humanizer.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\Irony.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\MessagePack.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\MessagePack.Annotations.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
@@ -55,6 +59,7 @@ D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\NuGet.Packaging
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\NuGet.ProjectModel.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\NuGet.Protocol.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\NuGet.Versioning.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\SixLabors.Fonts.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.CodeDom.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Composition.AttributedModel.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Composition.Convention.dll
@@ -63,10 +68,12 @@ D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Composit
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Composition.TypedParts.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Drawing.Common.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.IO.Packaging.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Reflection.MetadataLoadContext.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Security.Permissions.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.Windows.Extensions.dll
+D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\XLParser.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.resources.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.resources.dll
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -260,10 +267,3 @@ D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\HalloDoc(Admin)
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\obj\Debug\net7.0\HalloDoc(Admin).csproj.CopyComplete
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\obj\Debug\net7.0\HalloDoc(Admin).genruntimeconfig.cache
 D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\obj\Debug\net7.0\ref\HalloDoc(Admin).dll
-D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\ClosedXML.dll
-D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
-D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\ExcelNumberFormat.dll
-D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\Irony.dll
-D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\SixLabors.Fonts.dll
-D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\System.IO.Packaging.dll
-D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)\bin\Debug\net7.0\XLParser.dll

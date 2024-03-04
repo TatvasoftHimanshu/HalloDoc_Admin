@@ -38,11 +38,12 @@ namespace HalloDoc_Admin_.Controllers
 
         public IActionResult ViewUploads(int requestId) 
         {
-            return View();
+            return View(_action.getUploadsList(requestId));
         }
 
-        public IActionResult cancelCase(IFormCollection form,int requestId)
+        public IActionResult cancelCase(IFormCollection form)
         {
+            int.TryParse(form["requestId"], out int requestId);
             _action.cancelCase(form["reason"], form["Notes"], requestId);
             return RedirectToAction("Index","Home");
         }
@@ -56,15 +57,19 @@ namespace HalloDoc_Admin_.Controllers
         {
             return Json(new { physicianlist = _action.GetPhysicianList(regionId) });
         }
-        public IActionResult assignCase(IFormCollection form,int requestId)
+
+
+        public IActionResult assignCase(IFormCollection form)
         {
             int.TryParse(form["Region"], out int regionId);
             int.TryParse(form["Physician"], out int physicianId);
-            _action.assignCase(regionId,physicianId, form["Description"], requestId);
+            int.TryParse(form["requestId"], out int requestId);
+            _action.assignCase(regionId, physicianId, form["Description"], requestId);
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult blockCase(int requestId,IFormCollection form)
+        public IActionResult blockCase(IFormCollection form)
         {
+            int.TryParse(form["requestId"], out int requestId);
             _action.blockCase(requestId, form["Reason"]);
             return RedirectToAction("Index", "Home");
         }

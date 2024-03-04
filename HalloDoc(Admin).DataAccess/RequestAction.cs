@@ -123,6 +123,29 @@ namespace HalloDoc_Admin_.Repositories
             return regions;
         }
 
+        DocumentsData IAction.getUploadsList(int id)
+        {
+            BitArray bitArray = new BitArray(1);
+            bitArray.Set(0, true);
+            DocumentsData data = new DocumentsData();
+            var result = _context.RequestWiseFiles.Where(x => x.RequestId == id && (x.IsDeleted == bitArray || x.IsDeleted == null));
+            var request=_context.RequestClients.FirstOrDefault(x=>x.RequestId== id);            
+            data.PatientName=request.FirstName+" "+request.LastName;
+            data.confirmation_number = _context.Requests.FirstOrDefault(x => x.RequestId == id).ConfirmationNumber;
+            data.email = request.Email;
+            List<RequestWiseFile> list1=(
+                result.Select(item=>new RequestWiseFile
+                {
+                    RequestWiseFileId=item.RequestWiseFileId,
+                    CreatedDate=item.CreatedDate,
+                    FileName=item.FileName
+                    
+                })).ToList();
+            data.list.AddRange(list1);
+            return data;
+        }
+
+
         ViewCaseData IAction.getViewCaseData(int requestId)
         {
             ViewCaseData? viewCase = (from requestClient in _context.RequestClients
