@@ -6,72 +6,75 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
 }
 <div class="d-flex flex-column px-4 py-5">
+    <partial name="~/Modals/AssignCase.cshtml" />
+    <partial name="~/Modals/CancelCase.cshtml" />
+    <partial name="~/Modals/BlockCase.cshtml" />
     <form class="row w-100 " id="admin_cards" method="post" asp-controller="Home" asp-action="showStatusData" data-ajax="true" data-ajax-method="post"
           data-ajax-update="#result" enctype="multipart/form-data">
         <input type="hidden" value="1" id="statusInput" name="status" />
         <button class="border-0 col-lg-2 col-md-4 col-6 text-start border-0">
             <div class="p-3 crd activeCard0" style="background-color: #213f9921; border:1px solid #203f9a;color:#203f9a" onclick="statusList(0,event)">
                     <h5 class="card-title">
-                    <img class="bi bi-check2-circle" style="width:20px;height:20px" src="~/images/icons/new.svg" /> NEW
+                    <img class="bi bi-check2-circle responsivehide" style="width:20px;height:20px" src="~/images/icons/new.svg" /> NEW
                     </h5>
                     <h2 class="card-text">@ViewBag.list[0]</h2>
                 </div>
-            <div class="element activeElement mx-5" style="background-color: #213f99;border-radius:0px;"></div>
+            <div class="element activeElement mx-5 responsivehide" style="background-color: #213f99;border-radius:0px;"></div>
         </button>
 
         <button class="border-0 col-lg-2 col-md-4 col-6  text-start">
             <div class="p-3 crd" style="background-color: #18b6d121; border:1px solid #18b6d1;color:#18b6d1"
                  onclick="statusList(1,event)">
                     <h5 class="card-title">
-                        <img class="bi bi-check2-circle" style="width:20px;height:20px" src="~/images/icons/pending.svg"/> PENDING
+                    <img class="bi bi-check2-circle responsivehide" style="width:20px;height:20px" src="~/images/icons/pending.svg" /> PENDING
                     </h5>
                 <h2 class="card-text">@ViewBag.list[1]</h2>
                 </div>
-            <div class="element mx-5" style="background-color: #18b6d1;border-radius:0px;"></div>
+            <div class="element mx-5 responsivehide" style="background-color: #18b6d1;border-radius:0px;"></div>
         </button>
 
         <button class="border-0 col-lg-2 col-md-4 col-6 text-start">
             <div class="p-3 crd" style="background-color: #228c2021; border:1px solid #228c20;color:#228c20"
                  onclick="statusList(2,event)">
                     <h5 class="card-title">
-                    <img class="bi bi-check2-circle" style="width:20px;height:20px" src="~/images/icons/active.svg" /> ACTIVE
+                    <img class="bi bi-check2-circle responsivehide" style="width:20px;height:20px" src="~/images/icons/active.svg" /> ACTIVE
                     </h5>
                 <h2 class="card-text">@ViewBag.list[2]</h2>
                 </div>
-            <div class="element mx-5" style="background-color: #447d39;border-radius:0px;"></div>
+            <div class="element mx-5 responsivehide" style="background-color: #447d39;border-radius:0px;"></div>
         </button>
 
         <button class="border-0 col-lg-2 col-md-4 col-6  text-start">
             <div class="p-3 crd" style="background-color: #da138421; border:1px solid #da1384;color:#da1384"
                  onclick="statusList(3,event)">
                     <h5 class="card-title">
-                    <img class="bi bi-check2-circle" style="width:20px;height:20px" src="~/images/icons/conclude.svg" /> CONCLUDE
+                    <img class="bi bi-check2-circle responsivehide" style="width:20px;height:20px" src="~/images/icons/conclude.svg" /> CONCLUDE
                     </h5>
                 <h2 class="card-text">@ViewBag.list[3]</h2>
                 </div>
-            <div class="element mx-5" style="background-color: #d34390;border-radius:0px;"></div>
+            <div class="element mx-5 responsivehide" style="background-color: #d34390;border-radius:0px;"></div>
         </button>
 
         <button class="border-0 col-lg-2 col-md-4 col-6 text-start">
             <div class="p-3 crd" style="background-color: #3c9edb21; border:1px solid #3c9edb;color:#3c9edb"
                  onclick="statusList(4,event)">
                     <h5 class="card-title">
-                    <img class="bi bi-check2-circle" style="width:20px;height:20px" src="~/images/icons/toclose.svg" /> TO CLOSE
+                    <img class="bi bi-check2-circle responsivehide" style="width:20px;height:20px" src="~/images/icons/toclose.svg" /> TO CLOSE
                     </h5>
                 <h2 class="card-text">@ViewBag.list[4]</h2>
                 </div>
-            <div class="element mx-5" style="background-color: #3c9edb;border-radius:0px;"></div>
+            <div class="element mx-5 responsivehide" style="background-color: #3c9edb;border-radius:0px;"></div>
         </button>
 
             <button class="border-0 col-lg-2 col-md-4 col-6 text-start" >
                 <div class="p-3 crd" style="background-color: #ce71fd21; border:1px solid #ce71fd;color:#ce71fd"
                  onclick="statusList(5,event)">
                     <h5 class="card-title">
-                    <img class="bi bi-check2-circle" style="width:20px;height:20px;" src="~/images/icons/unpaid.svg" /> UNPAID
+                    <img class="bi bi-check2-circle responsivehide" style="width:20px;height:20px;" src="~/images/icons/unpaid.svg" /> UNPAID
                     </h5>
                 <h2 class="card-text">@ViewBag.list[5]</h2>
                 </div>
-            <div class="element mx-5" style="background-color: #ce71fd; border-radius:0px;"></div>
+            <div class="element mx-5 responsivehide" style="background-color: #ce71fd; border-radius:0px;"></div>
             </button>
         </form>
 
@@ -175,8 +178,8 @@
         </div>
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".activeCard0").click();

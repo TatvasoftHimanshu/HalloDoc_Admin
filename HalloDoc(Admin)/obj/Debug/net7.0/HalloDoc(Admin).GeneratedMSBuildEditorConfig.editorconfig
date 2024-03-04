@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Project\HalloDoc(Admin)_main\HalloDoc(Admin)
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Project/HalloDoc(Admin)_main/HalloDoc(Admin)/Modals/AllModals.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kYWxzXEFsbE1vZGFscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/HalloDoc(Admin)_main/HalloDoc(Admin)/Modals/AssignCase.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kYWxzXEFzc2lnbkNhc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/HalloDoc(Admin)_main/HalloDoc(Admin)/Modals/BlockCase.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kYWxzXEJsb2NrQ2FzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/HalloDoc(Admin)_main/HalloDoc(Admin)/Modals/CancelCase.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kYWxzXENhbmNlbENhc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project/HalloDoc(Admin)_main/HalloDoc(Admin)/Views/Action/ViewCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aW9uXFZpZXdDYXNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

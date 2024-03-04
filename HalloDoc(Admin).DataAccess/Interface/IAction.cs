@@ -19,5 +19,7 @@ namespace HalloDoc_Admin_.Repositories.Interface
         List<Physician> GetPhysicianList(int id);
         void assignCase(int regionid,int physicianId,string description,int id);
         void blockCase(int id, string reason);
+
+       DocumentsData getUploadsList(int id);
     }
 }
