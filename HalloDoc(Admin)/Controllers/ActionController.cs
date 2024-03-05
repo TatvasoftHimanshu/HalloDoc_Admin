@@ -2,6 +2,7 @@
 using HalloDoc_Admin_.Entities.ViewModel;
 using HalloDoc_Admin_.Repositories.Interface;
 using Microsoft.AspNetCore.Mvc;
+using SixLabors.Fonts;
 
 namespace HalloDoc_Admin_.Controllers
 {
@@ -72,6 +73,40 @@ namespace HalloDoc_Admin_.Controllers
             int.TryParse(form["requestId"], out int requestId);
             _action.blockCase(requestId, form["Reason"]);
             return RedirectToAction("Index", "Home");
+        }
+        public IActionResult DeleteFile(int FileId)
+        {
+            int requestId=_action.DeleteFileById(FileId);
+            if(requestId ==0) {
+                TempData["error"] = "This File doesn't exists";
+            }
+            return RedirectToAction("ViewUploads", new {requestId});
+        }
+        public IActionResult DeleteDocuments(List<int> requestFilesId, int requestId)
+        {
+            foreach(var  fileId in requestFilesId)
+            {
+                DeleteFile(fileId);
+            }
+            return RedirectToAction("ViewUploads", new { requestId });
+        }
+        public IActionResult UploadDoc(IFormFile formFile,int requestId)
+        {
+            int requestWiseFileId = _action.uploadDocument(formFile,requestId);
+            if(!(requestWiseFileId>0)) {
+                TempData["error"] = "Please select file correctly";
+            }
+            return RedirectToAction("ViewUploads", new { requestId });
+        }
+        public IActionResult SendDocumentsByMail(List<int> requestFilesId, int requestId)
+        {
+            _action.MailDocuments(requestFilesId, requestId);
+            return Json(new {});
+        }
+
+        public IActionResult Orders()
+        {
+            return View();
         }
     }
 }

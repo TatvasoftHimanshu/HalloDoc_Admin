@@ -3,11 +3,14 @@ using HalloDoc_Admin_.Entities.Enum;
 using HalloDoc_Admin_.Entities.Models;
 using HalloDoc_Admin_.Entities.ViewModel;
 using HalloDoc_Admin_.Repositories.Interface;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -110,6 +113,17 @@ namespace HalloDoc_Admin_.Repositories
 
         }
 
+        int IAction.DeleteFileById(int fileId)
+        {
+            BitArray DeleteBit = new BitArray(1);
+            DeleteBit.Set(0, true);
+            RequestWiseFile requestWiseFile = _context.RequestWiseFiles.First(x => x.RequestWiseFileId == fileId);
+            requestWiseFile.IsDeleted = DeleteBit;
+            _context.RequestWiseFiles.Update(requestWiseFile);
+            _context.SaveChanges();
+            return requestWiseFile.RequestId;
+        }
+
         List<Physician> IAction.GetPhysicianList(int id)
         {
             List<Physician> physicians=_context.Physicians.Where(x=>x.RegionId==id).ToList();
@@ -126,13 +140,14 @@ namespace HalloDoc_Admin_.Repositories
         DocumentsData IAction.getUploadsList(int id)
         {
             BitArray bitArray = new BitArray(1);
-            bitArray.Set(0, true);
+            bitArray.Set(0, false);
             DocumentsData data = new DocumentsData();
             var result = _context.RequestWiseFiles.Where(x => x.RequestId == id && (x.IsDeleted == bitArray || x.IsDeleted == null));
             var request=_context.RequestClients.FirstOrDefault(x=>x.RequestId== id);            
             data.PatientName=request.FirstName+" "+request.LastName;
             data.confirmation_number = _context.Requests.FirstOrDefault(x => x.RequestId == id).ConfirmationNumber;
             data.email = request.Email;
+            data.RequestId = id;
             List<RequestWiseFile> list1=(
                 result.Select(item=>new RequestWiseFile
                 {
@@ -172,6 +187,60 @@ namespace HalloDoc_Admin_.Repositories
                                       }).SingleOrDefault(x => x.RequestId == requestId);
             viewCase.userType = (ERequestType)Enum.Parse(typeof(ERequestType), viewCase.requestType.ToString());
             return viewCase ?? new ViewCaseData();
+        }
+
+        bool IAction.MailDocuments(List<int> requestFilesId, int requestId)
+        {
+            string senderEmail = "practicetatvasoft@outlook.com";
+            string senderPassword = "Tatvasoft@123";
+
+            SmtpClient client = new SmtpClient("smtp.office365.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(senderEmail, senderPassword),
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false
+            };
+
+            
+            string? email = _context.RequestClients.FirstOrDefault(x=>x.RequestId==requestId).Email;
+            var requestWiseFile = from requestFiles in _context.RequestWiseFiles where requestFilesId.Contains(requestFiles.RequestWiseFileId)
+                                              select new RequestWiseFile
+                                              {
+                                                 RequestWiseFileId=requestFiles.RequestWiseFileId,
+                                                 FileName= requestFiles.FileName,
+                                                 RequestId=requestFiles.RequestId,
+                                              };
+            string message = $@"<html>
+                                <body>  
+                                <h1>All Documents</h1>
+                                </body>
+                                </html>";
+            if (email != null)
+            {
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress(senderEmail),
+                    Subject = "Documents",
+                    Body = message,
+                    IsBodyHtml = true
+                };
+                foreach(var item in requestWiseFile)
+                {
+                    string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/"+item.FileName);
+                    Attachment attachment=new Attachment(filePath);
+                    mailMessage.Attachments.Add(attachment);
+                }
+                mailMessage.To.Add(email);
+                client.Send(mailMessage);
+                foreach (var attachment in mailMessage.Attachments)
+                {
+                    attachment.Dispose();
+                }
+                    return true;
+            }
+            return false;
         }
 
         void IAction.updateCase(ViewCaseData viewCaseData)
@@ -235,6 +304,31 @@ namespace HalloDoc_Admin_.Repositories
                 _context.RequestNotes.Add(requestnote);
                 _context.SaveChanges();
             }
+        }
+
+        int IAction.uploadDocument(IFormFile file, int requestId)
+        {
+            if (file != null && file.Length > 0)
+            {
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads", file.FileName);
+
+                using (var stream = new FileStream(uploadPath, FileMode.Create))
+                {
+                    file.CopyToAsync(stream);
+                }
+                var filePath = "uploads/" + file.FileName;
+            RequestWiseFile requestWiseFile=new RequestWiseFile
+            {
+                RequestId = requestId,
+                FileName = filePath,
+                CreatedDate = DateTime.Now
+            };
+              
+                _context.RequestWiseFiles.Add(requestWiseFile);
+                _context.SaveChanges();
+                return requestWiseFile.RequestWiseFileId;
+            }
+            return 0;
         }
     }
 }

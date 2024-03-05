@@ -357,8 +357,20 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\uploads\\AllData (1).xlsx",
+      "PackagePath": "staticwebassets\\uploads\\AllData (1).xlsx"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\uploads\\Screenshot (1).png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot (1).png"
+    },
+    {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\uploads\\Screenshot (2).png",
       "PackagePath": "staticwebassets\\uploads\\Screenshot (2).png"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\uploads\\document.svg",
+      "PackagePath": "staticwebassets\\uploads\\document.svg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.HalloDoc(Admin).Microsoft.AspNetCore.StaticWebAssets.props",
