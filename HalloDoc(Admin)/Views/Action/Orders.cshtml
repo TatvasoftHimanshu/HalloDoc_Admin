@@ -1,0 +1,51 @@
+﻿@{
+}
+<div class="container mt-5 pt-xl-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Send Order</h2>
+        <a class="btn_dash p-1 px-2 btn">Back</a>
+    </div>
+    <div class="row bg-white my-3 py-3 box-shadow">
+        <div class="mb-3 col-xl-6 col-sm-12">
+            <select class="form-control py-2">
+                <option selected disabled> Select Profession</option>
+            </select>
+        </div>
+        <div class="mb-3 col-xl-6 col-sm-12">
+            <select class="form-control py-2">
+            <option selected disabled> Business</option>
+            </select>
+        </div>
+        <div class="my-4 col-xl-6 col-sm-12">
+            <select class=" form-control py-2">
+            <option selected disabled>Business Contact</option>
+            </select>
+        </div>
+        <div class="group mb-3 col-xl-6 col-sm-12">
+            <input type="email" class="form-control input-field input-field1 pt-3" placeholder="" >
+            <label for="" class="placeholder">Email </label>
+            <span @*asp-validation-for=""*@ class="text-danger"></span>
+        </div>
+        <div class="group mb-3 col-xl-6 col-sm-12">
+            <input type="tel" class="form-control input-field input-field1 pt-3" placeholder="">
+            <label for="" class="placeholder">Fax number </label>
+            <span @*asp-validation-for=""*@ class="text-danger"></span>
+        </div>
+        <div class="group mb-3 col-12">
+            <textarea class="form-control input-field input-field1 pt-3" rows="5" placeholder=""></textarea>
+            <label for="" class="placeholder">Prescription or Order Details </label>
+            <span @*asp-validation-for=""*@ class="text-danger"></span>
+        </div>
+        <div class="group mb-3 col-xl-6 col-sm-12">
+            <select type="tel" class="form-control input-field input-field1 pt-3" placeholder="">
+                <option selected disabled>Not Requied</option>
+            </select>
+            <label for="" class="placeholder">Number of Refill </label>
+            <span @*asp-validation-for=""*@ class="text-danger"></span>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn_admin mx-2">Submit</button>
+            <buuton class="btn btn_dash mx-2">Cancel</buuton>
+        </div>
+    </div>
+</div>

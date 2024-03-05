@@ -1,10 +1,12 @@
 ﻿using HalloDoc_Admin_.Entities.ViewModel;
 using HalloDoc_Admin_.Entities.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace HalloDoc_Admin_.Repositories.Interface
 {
@@ -19,7 +21,9 @@ namespace HalloDoc_Admin_.Repositories.Interface
         List<Physician> GetPhysicianList(int id);
         void assignCase(int regionid,int physicianId,string description,int id);
         void blockCase(int id, string reason);
-
-       DocumentsData getUploadsList(int id);
+        DocumentsData getUploadsList(int id);
+        int DeleteFileById(int fileId);
+        int uploadDocument(IFormFile file,int requestId);
+        bool MailDocuments(List<int> requestFilesId,int requestId);
     }
 }

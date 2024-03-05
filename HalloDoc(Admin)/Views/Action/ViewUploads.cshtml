@@ -1,7 +1,7 @@
 ﻿@model HalloDoc_Admin_.Entities.ViewModel.DocumentsData;
 @{
 }
-<div class="container">
+<div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mt-2">
         <h2>Documents</h2>
         <a class="btn_dash p-1 px-2 btn">Back</a>
@@ -14,8 +14,8 @@
                 <h3 class="d-inline">(@Model.confirmation_number)</h3>
             </div>
             <p class="mb-3">Check here to review and cold fles that you or the Clienti Member has attached to the Request.</p>
-            <form class="d-flex mb-5" method="post" asp-controller="Home" asp-action="UploadDoc"
-                  enctype="multipart/form-data">
+            <form class="d-flex mb-5" method="post" asp-controller="Action" asp-action="UploadDoc"
+                  enctype="multipart/form-data" asp-route-requestId="@Model.RequestId">
                 <input class="form-control" name="formFile" type="file">
                 <button type="submit" class="btn btn-info" style="color: white;">Upload</button>
             </form>
@@ -23,26 +23,27 @@
                 <h4>Documents</h4>
                 <div>
                     <button class="btn_dash btn mx-1" onclick="downloadAll()">Download All</button>
-                    <button class="btn_dash btn mx-1" >Delete All</button>
-                    <button class="btn_dash btn mx-1">Send Mail</button>
+                    <button class="btn_dash btn mx-1" onclick="deleteAll(@Model.RequestId)">Delete All</button>
+                    <button class="btn_dash btn mx-1" onclick="sendMails(@Model.RequestId)">Send Mail</button>
                 </div>
             </div>
         </div>
         <table class="table table-responsive">
-            <thead class="bg-light ">
-            <th><input type="checkbox" class="form-control-lg" onclick="selectAll()" id="selectAllRd"></th>
+            <thead class="bg-light">
+            <th><input type="checkbox" class="form-control-lg" style="min-height:auto" onclick="selectAll()" id="selectAllRd"></th>
             <th>Documents</th>
             <th>Upload Date</th>
+            <th>Uploader</th>
             <th>Action</th>
             </thead>
             @foreach (var file in Model.list)
             {
                 <tr>
-                    <td><input type="checkbox" class="form-control-lg rd" onclick="selectBox()"></td>
-                    <td>@file.FileName.Substring(9)</td>
+                    <td><input type="checkbox" class="form-control-lg rd" style="min-height:auto" onclick="selectBox()" fileId="@file.RequestWiseFileId"></td>
+                    <td>@file.FileName.Substring(8)</td>
                     <td>@file.CreatedDate</td>
                     <td>
-                        <a  class=" btn_dash"><i class="bi bi-trash m-1"></i></a>
+                        <a class="btn_dash delete-link" asp-controller="Action" asp-action="DeleteFile" asp-route-FileId="@file.RequestWiseFileId" ><i class="bi bi-trash m-1"></i></a>
                         <a href="@file.FileName" download class="download-link btn_dash"><i class="bi bi-cloud m-1"></i></a>
                     </td>
                 </tr>
@@ -79,11 +80,64 @@ var selectAllRd = document.getElementById("selectAllRd");
     }
     var dowLinks = document.getElementsByClassName("download-link");
     function downloadAll() {
-        console.log("bvhn");
         for (var j = 0; j < rds.length; j++) {
             if (rds[j].checked) {
                 dowLinks[j].click();
             }
         }
+    }
+
+    var deleteLinks=document.getElementsByClassName("delete-link");
+    function deleteAll(requestId)
+    {
+        var a = [];
+        for (var j = 0; j < rds.length; j++) {
+            if (rds[j].checked) {
+               
+                a.push(rds[j].getAttribute('fileId'));
+                
+            }
+        }
+        $.ajax({
+            url: "https://localhost:7025/Action/DeleteDocuments",
+            type: 'post',
+            data: {
+                requestFilesId: a,
+                requestId
+            },
+            success: function (response) {
+               
+            },
+            error: function () {
+                alert("error");
+            }
+        })
+        location.reload();
+      
+    }
+    function sendMails(requestId)
+    {
+        var fileList = [];
+        for (var j = 0; j < rds.length; j++) {
+            if (rds[j].checked) {
+                fileList.push(rds[j].getAttribute('fileId'));
+            }
+        }
+        console.log(fileList);
+        $.ajax({
+            url: "https://localhost:7025/Action/SendDocumentsByMail",
+            type: 'post',
+            data: {
+                requestFilesId: fileList,
+                requestId
+            },
+            success: function (response) {
+
+            },
+            error: function () {
+                alert("error");
+            }
+        })
+        location.reload();
     }
 </script>
