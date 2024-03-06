@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N+fc0K0B+lYU+UnEmscxBD332WpdXoAn00QwqiCROGw=",
+  "Hash": "yzCFkRT5h2xrPUJUFdRoWtl90Ul722idGi3R5kcuspY=",
   "Source": "HalloDoc(Admin)",
   "BasePath": "_content/HalloDoc(Admin)",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HalloDoc(Admin).bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\css\\AdminSite.css",
+      "SourceId": "HalloDoc(Admin)",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\",
+      "BasePath": "_content/HalloDoc(Admin)",
+      "RelativePath": "css/AdminSite.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\AdminSite.css"
     },
     {
       "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\css\\site.css",
@@ -542,6 +559,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\icons\\upload.svg"
+    },
+    {
+      "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\login_img.jpg",
+      "SourceId": "HalloDoc(Admin)",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\",
+      "BasePath": "_content/HalloDoc(Admin)",
+      "RelativePath": "images/login_img.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\login_img.jpg"
+    },
+    {
+      "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\logo.png",
+      "SourceId": "HalloDoc(Admin)",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\",
+      "BasePath": "_content/HalloDoc(Admin)",
+      "RelativePath": "images/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo.png"
     },
     {
       "Identity": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\send.svg",

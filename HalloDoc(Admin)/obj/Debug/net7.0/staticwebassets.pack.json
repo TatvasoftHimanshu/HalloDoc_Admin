@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\HalloDoc(Admin).bundle.scp.css"
     },
     {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\css\\AdminSite.css",
+      "PackagePath": "staticwebassets\\css\\AdminSite.css"
+    },
+    {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -119,6 +123,14 @@
     {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\icons\\upload.svg",
       "PackagePath": "staticwebassets\\images\\icons\\upload.svg"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\login_img.jpg",
+      "PackagePath": "staticwebassets\\images\\login_img.jpg"
+    },
+    {
+      "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
       "Id": "D:\\Project\\HalloDoc(Admin)_main\\HalloDoc(Admin)\\wwwroot\\images\\send.svg",

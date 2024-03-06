@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "AdminLogin";
+    Layout = "~/Views/Shared/_StartLayout.cshtml";
+}
+
+
+<div class="container-fluid m-0 p-0 d-flex flex-row h-100">
+
+<div class="col-6 login-img m-0">
+    <img src="~/images/login_img.jpg" alt="Login Photo" />
+</div>
+<div class="bg-img"></div>
+<div class="col-6 login-form d-flex flex-column justify-content-between align-items-center py-5 h-100">
+    <div>
+        <img src="~/images/logo.png"/>
+    </div>
+
+    <form class="">
+        <h1>Login To Your Account</h1>
+        <div class="group mb-3">
+            <input type="email" class="form-control input-field" placeholder="">
+            <label for="" class="placeholder">Username</label>
+        </div>
+        <div class="group">
+            <input type="password" class="form-control input-field" placeholder="">
+            <label for="" class="placeholder">Password</label>
+        </div>
+        <div >
+            <button type="submit" class="btn btn_admin w-100" id="btn-login">Log in</button>
+        </div>
+        <div class="text-center mt-3">
+            <a href="" class="link-forgot">Forgot Password?</a>
+        </div>
+    </form>
+
+    <div class="term-policy">
+        <a href="">Terms of Conditions</a><span class="mx-2">|</span>
+        <a href="">Privacy Policy</a>
+    </div>
+</div>
+</div>
