@@ -23,7 +23,7 @@
                 
             </div>
         </nav>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between bg-white w-100 position-absolute">
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between bg-white w-100 ">
             <ul class="nav nav-tabs d-sm-flex flex-column flex-sm-row">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
@@ -63,5 +63,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        var navLinks = document.getElementsByClassName("nav-link");
+        for (var i = 0; i < navLinks.length; i++) {
+            navLinks[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
+                }
+                this.className += " active";
+            });
+        }
+    </script>
 </body>
 </html>
